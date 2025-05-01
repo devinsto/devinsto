@@ -13,15 +13,95 @@ defineProps<Props>();
 </script>
 
 <template>
-   <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 400 400" style="enable-background:new 0 0 400 400;" xml:space="preserve">
-<path class="st0" d="M245.51,381.4c-70.45,6.5-120.91-30.47-156.68-55.65c-15.52-10.93-25.74-23.3-36.68-19.45
-	c-8.62,3.03-14.19,19.62-10.25,29.2c2.5,6.09,10.59,15.14,23.48,12.35c10.17-2.19,23.13-11.14,30.48-17.05l31.39,20.82
-	c-15.29,18.48-38.21,25.37-53.35,28.63c-25.77,5.57-49.41-7.87-60.24-34.2c-11.09-26.97-4.28-56.97,16.2-71.35
-	c24.4-17.12,50.57,1.86,78.39,21.79c38.86,27.84,92.52,66.69,169.81,41.92c35.91-11.51,63.83-48.89,74.68-100
-	c12.66-59.64-1.22-121.11-34.56-152.96c-34.4-32.87-68.68-39.51-104.79-20.29c-32.31,17.2-37.97,73.14-43.96,132.36
-	c-4.07,40.25-9.01,91.14-22.4,124.75l-32.39-21.17c11.5-28.87,16.86-69.83,20.67-107.56c6.68-65.99,13.59-134.23,62.27-160.15
-	c34.17-18.19,86.84-28.46,143.71,25.88c21.95,20.98,37.58,50.7,45.19,85.94c7,32.43,6.92,67.39-0.25,101.12
-	c-13.53,63.7-50.11,110.86-97.86,126.16C273.33,377.3,259.05,380.15,245.51,381.4z"/>
-</svg>
+    <div class="svgBox">
+        <svg width="96.427" height="77.88" viewBox="0 0 96.427 77.88" class="static">
+            <defs>
+                <linearGradient id="rosto">
+                    <stop offset="0%" stop-color="#d2305c" />
+                    <stop offset="25%" stop-color="#ff5e00" />
+                    <stop offset="50%" stop-color="#ffeb00" />
+                    <stop offset="75%" stop-color="#00c06b" />
+                    <stop offset="100%" stop-color="#00c06b" />
+                </linearGradient>
+            </defs>
+            <g id="Groupe_17" data-name="Groupe 17">
+                <path class=" dark:stroke-cyan-500" d="M16.114,73.261c32.627-3.8,8.355-55.2,32.712-65.018,15.829-6.383,27.6,3.977,32.915,9.854,4.978,5.587,21.029,40.331-16.254,53.944C28.374,79.95,27.188,50.2,11.746,55.585c-6.12,3.369-8.772,11.352-4.368,16.458,3.556,1.93,6.154,1.52,8.737,1.219" fill="none" />
+            </g>
+        </svg>
+
+        <svg width="96.427" height="77.88" viewBox="0 0 96.427 77.88" class="blur">
+            <defs>
+                <linearGradient id="rosto">
+                    <stop offset="0%" stop-color="#d2305c" />
+                    <stop offset="25%" stop-color="#ff5e00" />
+                    <stop offset="50%" stop-color="#ffeb00" />
+                    <stop offset="75%" stop-color="#00c06b" />
+                    <stop offset="100%" stop-color="#00c06b" />
+                </linearGradient>
+            </defs>
+            <g id="Groupe_17" data-name="Groupe 17">
+                <path d="M16.114,73.261c32.627-3.8,8.355-55.2,32.712-65.018,15.829-6.383,27.6,3.977,32.915,9.854,4.978,5.587,21.029,40.331-16.254,53.944C28.374,79.95,27.188,50.2,11.746,55.585c-6.12,3.369-8.772,11.352-4.368,16.458,3.556,1.93,6.154,1.52,8.737,1.219" fill="none" />
+            </g>
+        </svg>
+
+        <svg width="96.427" height="77.88" viewBox="0 0 96.427 77.88">
+            <defs>
+                <linearGradient id="rosto">
+                    <stop offset="0%" stop-color="#d2305c" />
+                    <stop offset="25%" stop-color="#ff5e00" />
+                    <stop offset="50%" stop-color="#ffeb00" />
+                    <stop offset="75%" stop-color="#00c06b" />
+                    <stop offset="100%" stop-color="#00c06b" />
+                </linearGradient>
+            </defs>
+            <g id="Groupe_17" data-name="Groupe 17">
+                <path d="M16.114,73.261c32.627-3.8,8.355-55.2,32.712-65.018,15.829-6.383,27.6,3.977,32.915,9.854,4.978,5.587,21.029,40.331-16.254,53.944C28.374,79.95,27.188,50.2,11.746,55.585c-6.12,3.369-8.772,11.352-4.368,16.458,3.556,1.93,6.154,1.52,8.737,1.219" fill="none" />
+            </g>
+        </svg>
+    </div>
+  
 </template>
+
+<style>
+.svgBox {
+    padding-top: 100%;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.svgBox svg {
+    position: absolute;
+    width: 96.427px;
+    height: 77.88px;
+}
+
+.svgBox svg path {
+    fill: none;
+    stroke: url(#rosto);
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-dasharray: 43 220;
+    stroke-dashoffset: 0;
+    transform: scale(0.9);
+    will-change: stroke-dashoffset, transform;
+    animation: draw 4s linear infinite;
+}
+
+@keyframes draw {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: 255; }
+}
+
+.svgBox svg.static path {
+    animation: none;
+    stroke: #033503;
+    /* stroke: #ffffff; */
+    stroke-dasharray: none;
+}
+
+
+.svgBox svg.blur path {
+    filter: blur(1px);
+}
+</style>

@@ -15,6 +15,7 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+   
     {
         title: 'Home',
         href: '/',

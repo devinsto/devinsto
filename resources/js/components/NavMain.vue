@@ -15,9 +15,9 @@ const page = usePage<SharedData>();
         <SidebarGroupLabel>Platform</SidebarGroupLabel>
         <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-                <SidebarMenuButton 
+                <SidebarMenuButton  
                     as-child :is-active="item.href === page.url"
-                    :tooltip="item.title"
+                    :tooltip="item.title" 
                 >
                     <Link :href="item.href" prefetch>
                         <component :is="item.icon" />
@@ -26,5 +26,7 @@ const page = usePage<SharedData>();
                 </SidebarMenuButton>
             </SidebarMenuItem>
         </SidebarMenu>
+        <SidebarGroupLabel>Platform</SidebarGroupLabel>
+
     </SidebarGroup>
 </template>
