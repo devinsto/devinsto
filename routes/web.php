@@ -6,6 +6,17 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
+
+Route::get('/formations', function () {
+    return Inertia::render('Formations');
+})->name('formations');
+
+Route::get('/blog', function () {
+    return Inertia::render('Blog');
+})->name('blog');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
