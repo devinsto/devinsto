@@ -10,8 +10,8 @@ Route::get('/about', function () {
     return Inertia::render('About');
 })->name('about');
 
-Route::get('/formations', function () {
-    return Inertia::render('Formations');
+Route::get('/courses', function () {
+    return Inertia::render('Courses');
 })->name('formations');
 
 Route::get('/blog', function () {
