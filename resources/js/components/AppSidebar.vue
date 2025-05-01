@@ -6,6 +6,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, Sid
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import {  LayoutGrid } from 'lucide-vue-next';
+import {  Home } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
@@ -17,7 +18,7 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Home',
         href: '/',
-        icon: LayoutGrid,
+        icon: Home,
     },
 ];
 
@@ -41,7 +42,7 @@ const footerNavItems: NavItem[] = [
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
-                        <Link :href="route('dashboard')">
+                        <Link :href="route('dashboard')"  prefetch>
                             <AppLogo />
                         </Link>
                     </SidebarMenuButton>
