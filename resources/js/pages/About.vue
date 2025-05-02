@@ -15,7 +15,7 @@ import NavBar from '@/Components/NavBar.vue'
 
     <h2 class="text-3xl font-bold mb-4">Notre Mission</h2>
     <p class="mb-4">
-      Notre mission chez Devinsto.com est de démocratiser l'accès aux ressources éducatives et aux outils de création, qu’il s’agisse de programmation, de design graphique ou de gestion de projets numériques. Nous croyons que l’éducation et la créativité sont les moteurs du progrès, et nous nous efforçons de fournir un environnement où chaque utilisateur peut acquérir des compétences pratiques et immédiatement applicables.
+      Notre mission chez Devinsto est de démocratiser l'accès aux ressources éducatives et aux outils de création, qu’il s’agisse de programmation, de design graphique ou de gestion de projets numériques. Nous croyons que l’éducation et la créativité sont les moteurs du progrès, et nous nous efforçons de fournir un environnement où chaque utilisateur peut acquérir des compétences pratiques et immédiatement applicables.
     </p>
     <p class="mb-4">
       Nous souhaitons donner à chacun les moyens de développer ses talents, de créer des projets innovants et de bâtir sa présence en ligne, que ce soit en tant que développeur, designer ou entrepreneur numérique.
