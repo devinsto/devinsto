@@ -7,6 +7,7 @@ import { type BreadcrumbItem } from '@/types';
 
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
+import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
@@ -24,6 +25,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
             <div class="space-y-6">
                 <HeadingSmall title="Appearance settings" description="Update your account's appearance settings" />
                 <AppearanceTabs />
+                <AppearanceDarkLightToggle />
             </div>
         </SettingsLayout>
     </AppLayout>
