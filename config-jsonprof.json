@@ -1,0 +1,200 @@
+{
+  
+  // Paramètres de l'éditeur
+  "editor.tabSize": 2,
+  "editor.lineHeight": 2,
+  "eslint.useFlatConfig": true, // Active la configuration plate d'ESLint
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit" // Organise explicitement les imports lors de l'enregistrement
+  },
+  "editor.emptySelectionClipboard": true, // Copie la ligne entière si aucune sélection n'est faite
+  "editor.copyWithSyntaxHighlighting": true, // Copie avec la mise en évidence syntaxique
+  "editor.accessibilitySupport": "off", // Désactive le support d'accessibilité
+  "editor.padding.top": 16, // Ajoute un espacement de 16 pixels en haut de l'éditeur
+  "editor.cursorSmoothCaretAnimation": "on", // Active l'animation fluide du curseur
+  "editor.tabCompletion": "on", // Active la complétion de tabulation
+  "explorer.openEditors.visible": 1, // Affiche un seul éditeur ouvert dans l'explorateur de fichiers
+  "workbench.statusBar.visible": true, // Affiche la barre de statut
+  "window.commandCenter": true, // Active le centre de commande
+  "auto-close-tag.enableAutoCloseTag": true, // Active la fermeture automatique des balises HTML
+  "github.copilot.chat.localeOverride": "fr", // Définit la langue de Copilot en français
+  "github.copilot.enable": {
+    "*": true, // Active GitHub Copilot pour tous les fichiers
+    "plaintext": true, // Active Copilot pour les fichiers en texte brut
+    "markdown": true, // Active Copilot pour les fichiers markdown
+    "scminput": true // Active Copilot pour l'interface d'entrée Git
+  },
+  
+  // Paramètres de formatage spécifique pour certains types de fichiers
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features" // Définit le formatteur pour les fichiers JSON
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar" // Définit le formatteur pour les fichiers Vue
+  },
+
+  // Paramètres de comparaison de fichiers (diffs)
+  "diffEditor.ignoreTrimWhitespace": false, // Ne pas ignorer les espaces blancs dans les diffs
+  "diffEditor.renderSideBySide": true, // Affiche les différences côte à côte
+  "diffEditor.wordWrap": "off", // Désactive le retour à la ligne dans les diffs
+
+  // Configuration de TailwindCSS
+  "tailwindCSS.experimental.classRegex": ["[\"'](.*?)[\"']"], // Expression régulière pour détecter les classes TailwindCSS
+
+  // // Paramètres d'éditeur avancés
+  "editor.semanticHighlighting.enabled": true, // Active la mise en surbrillance sémantique
+  "editor.bracketPairColorization.enabled": true, // Active la coloration des paires de parenthèses
+  "editor.inlineSuggest.enabled": true, // Active les suggestions en ligne
+  "editor.acceptSuggestionOnEnter": "smart", // Accepte les suggestions intelligemment avec la touche Entrée
+  "editor.suggestSelection": "first", // Sélectionne la première suggestion par défaut
+  "editor.suggest.showWords": false, // Affiche les suggestions de mots
+
+  // Paramètres d'Emmet
+  "emmet.showAbbreviationSuggestions": true, // Affiche les suggestions d'abréviations Emmet
+  "editor.mouseWheelScrollSensitivity": 1.5, // Sensibilité du défilement de la souris
+  "editor.suggest.insertMode": "replace", // Remplace le texte sélectionné lors de l'insertion d'une suggestion
+  "editor.acceptSuggestionOnCommitCharacter": true, // Accepte les suggestions lors de la saisie d'un caractère de validation
+
+  // Navigation dans le code
+  "editor.gotoLocation.multipleReferences": "goto", // Va à la première référence lors de multiples références
+  "editor.gotoLocation.multipleDefinitions": "goto", // Va à la première définition lors de multiples définitions
+  "editor.gotoLocation.multipleDeclarations": "goto", // Va à la première déclaration lors de multiples déclarations
+  "editor.gotoLocation.multipleImplementations": "goto", // Va à la première implémentation lors de multiples implémentations
+  "editor.gotoLocation.multipleTypeDefinitions": "goto", // Va à la première définition de type lors de multiples définitions
+
+  // // Paramètres de formatage
+ 
+  "editor.fontFamily": "'Operator Mono Lig', Consolas, 'Courier New', monospace", // Définit la police de l'éditeur
+  //"terminal.integrated.fontFamily": "Operator Mono Lig", // Définit la police du terminal intégré
+  "editor.fontLigatures": true, // Active les ligatures typographiques
+  // "editor.fontSize": 15, // Définit la taille de la police de l'éditeur
+  "editor.fontWeight": "350", // Définit l'épaisseur de la police
+  "window.zoomLevel": 3, // Définit le niveau de zoom de l'éditeur
+  "workbench.editor.limit.value": 6, // Limite le nombre d'éditeurs ouverts à 6
+  "workbench.editor.limit.enabled": true, // Active la limitation du nombre d'éditeurs ouverts
+  "terminal.integrated.sendKeybindingsToShell": true, // Envoie les raccourcis clavier au terminal
+
+    // Personnalisation de la couleur des tokens
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": [
+            "comment", "string", "variable", "keyword", "storage.type", "storage.modifier",
+            "entity.name.function", "entity.name.type", "entity.other.attribute-name", "support.function",
+            "support.constant", "support.variable", "support.type", "support.class", "support.other.variable",
+            "entity.name.tag"
+          ],
+          "settings": {
+            "fontStyle": "italic", // Applique un style italique à certains tokens
+          }
+        }
+      ]
+    },
+   
+  // Mise à jour des imports lors du déplacement de fichiers
+  "typescript.updateImportsOnFileMove.enabled": "always", // Met à jour les imports lors du déplacement de fichiers TypeScript
+  "javascript.updateImportsOnFileMove.enabled": "always", // Met à jour les imports lors du déplacement de fichiers JavaScript
+
+  // Paramètres du curseur
+  "editor.cursorBlinking": "smooth", // Curseur clignotant en mode fluide
+  "editor.cursorWidth": 2, // Largeur du curseur
+  "editor.cursorStyle": "line", // Style du curseur (ligne)
+  
+  // Paramètres d'Emmet
+  "emmet.triggerExpansionOnTab": true, // Déclenche Emmet avec la touche Tab
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "blade.php": "html",
+    "twig": "html",
+    "html": "html",
+    "php": "php",
+    "vue": "html",
+    "sql": "sql",
+    "python": "python",
+    "css": "css",
+    "tailwindcss": "css"
+  },
+
+
+
+  // Paramètres Git
+  "git.autofetch": true, // Active la récupération automatique des modifications Git
+  "git.enableSmartCommit": true, // Active les commits intelligents
+  "githubPullRequests.createOnPublishBranch": "never", // Ne crée pas de pull request lors de la publication d'une branche
+  "gitlens.views.branches.files.layout": "list", // Affiche les fichiers en liste dans GitLens
+
+  // Paramètres du serveur en direct
+  "liveServer.settings.donotShowInfoMsg": true, // Ne pas afficher les messages d'information du serveur en direct
+
+  // Suggestions rapides dans l'éditeur
+  "editor.quickSuggestions": { "strings": "on" }, // Active les suggestions rapides pour les chaînes de caractères
+
+  // Exclusion de fichiers dans la recherche
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "/node_modules": true,
+    "/bower_components": true,
+    "/*.code-search": true,
+    "_ide_helper.php": true,
+    "_ide_helper_models.php": true,
+    ".php_cs.cache": true,
+    ".phpstorm.meta.php": true,
+    ".phpunit.result.cache": true
+  },
+
+  // Paramètres de l'explorateur de fichiers
+  "explorer.compactFolders": false, // Désactive la réduction des dossiers dans l'explorateur
+
+  // Personnalisation du thème de couleur
+  "oneDarkPro.color": { "green": "#3dff64" }, // Définit la couleur verte dans One Dark Pro
+
+  // Sauvegarde automatique des fichiers
+  "files.autoSave": "afterDelay", // Sauvegarde automatique après un délai
+
+  // Paramètres du thème de couleur et des icônes
+  "workbench.colorTheme": "One Dark Pro Darker", // Définit le thème de couleurs One Dark Pro
+  "workbench.iconTheme": "vscode-icons", // Définit le thème des icônes
+
+  // Vérification de l'orthographe
+  "cSpell.language": "fr", // Définit la langue du vérificateur d'orthographe en français
+
+  // Paramètres du défilement
+  "editor.stickyScroll.enabled": false, // Désactive le défilement collant
+  "editor.minimap.size": "fit",
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[blade]": {
+    
+  },
+  "githubPullRequests.pullBranch": "never",
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+    "composer.json": "composer.lock",
+    "psalm.xml": "psalm-baseline.xml",
+    ".php-cs-fixer.php": ".php-cs-fixer.cache",
+    "phpunit.xml": ".phpunit.result.cache",
+    "*.php": "${basename}Test.php"
+  },
+  "files.associations": {
+    "*.page-template": "vue",
+    "*.layout-template": "vue",
+    "*.vue": "vue",
+    ".php_cs.dist": "php",
+    ".php_cs": "php",
+    ".pre": "php",
+    "artisan": "php"
+  },
+  "vscode-edge-devtools.webhintInstallNotification": true,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.docx": "default"
+  } // Ajuste la taille de la minimap
+}

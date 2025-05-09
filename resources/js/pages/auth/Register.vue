@@ -7,7 +7,9 @@ import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
-import NavBar from '@/Components/NavBar.vue'
+// import NavBar from '../../components/Navbar.vue'
+import NavBar from '@/components/NavBar.vue';
+
 
 const form = useForm({
     name: '',
@@ -32,7 +34,7 @@ const submit = () => {
             <div class="grid gap-6">
                 <div class="grid gap-2">
                     <Label for="name">Name</Label>
-                    <Input id="name" type="text"  autofocus :tabindex="1" autocomplete="name" v-model="form.name" placeholder="Full name" />
+                    <Input id="name" type="text"  autofocus :tabindex="1" autocomplete="name" v-model="form.name" placeholder="Votre nom+++"/>
                     <InputError :message="form.errors.name" />
                 </div>
 

@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import NavBar from '@/Components/NavBar.vue'
+import { ref } from 'vue';
+import NavBar from '@/components/NavBar.vue';
+
+// Define the theme property
+const theme = ref('light'); // Default theme can be 'light' or 'dark'
+
 </script>
 
 <template>
   <NavBar />
-  <div :class="['about-container', theme]" class="p-7">
+  <div :class="['about-container', theme.value]" class="p-7">
     <h1 class="text-4xl font-bold mb-4">À Propos de Nous</h1>
     <p class="mb-4">
       <strong>À propos de Devinsto.com</strong><br />

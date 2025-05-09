@@ -1,5 +1,6 @@
 <!-- resources/js/Components/NavBar.vue -->
 <script setup lang="ts">
+import AppearanceTabs from '@/components/AppearanceTabs.vue';
 import { ref, onMounted } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
 import AppLogo from '@/components/AppLogo.vue'
@@ -87,21 +88,10 @@ const links: NavLink[] = [
             </template>
           </div>
 
-          <!-- Toggle dark/light -->
-          <button
-            @click="toggleTheme"
-            class="p-2 rounded focus:outline-none focus:ring focus:ring-primary"
-            :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-          >
-            <svg v-if="!isDark" class="h-6 w-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 3v1m0 16v1M4.22 4.22l.707.707m12.02 12.02l.707.707M1 12h1m16 0h1M4.22 19.78l.707-.707m12.02-12.02l.707-.707M12 5a7 7 0 100 14a7 7 0 000-14z"/>
-            </svg>
-            <svg v-else class="h-6 w-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 12.79A9 9 0 1111.21 3A7 7 0 0021 12.79z"/>
-            </svg>
-          </button>
+          <div class="flex items-center gap-4">
+      <!-- Intégration du composant AppearanceTabs -->
+      <AppearanceTabs />
+    </div>
 
           <!-- Mobile menu button -->
           <button
@@ -178,5 +168,9 @@ const links: NavLink[] = [
 .dim{
     padding-top: 30%;
     transform: scale(0.3);
+}
+nav {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 </style>
