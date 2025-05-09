@@ -48,7 +48,7 @@ const toggleTheme = () => {
 <template>
   <button
     @click="toggleTheme"
-    class="relative flex items-center justify-center w-12 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 overflow-hidden transition-colors"
+    class="relative flex items-center justify-center cursor-pointer w-12 h-8 rounded-full bg-neutral-200 dark:bg-neutral-700 overflow-hidden transition-colors"
     aria-label="Toggle theme"
   >
     <!-- Conteneur pour l'animation -->
