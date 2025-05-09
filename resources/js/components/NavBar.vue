@@ -4,6 +4,7 @@ import AppearanceTabs from '@/components/AppearanceTabs.vue';
 import { ref, onMounted } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
 import AppLogo from '@/components/AppLogo.vue'
+import AppearanceDarkLightToggle from './AppearanceDarkLightToggle.vue';
 
 const open = ref(false)
 const isDark = ref(false)
@@ -90,7 +91,7 @@ const links: NavLink[] = [
 
           <div class="flex items-center gap-4">
       <!-- Intégration du composant AppearanceTabs -->
-      <AppearanceTabs />
+      <AppearanceDarkLightToggle />
     </div>
 
           <!-- Mobile menu button -->
