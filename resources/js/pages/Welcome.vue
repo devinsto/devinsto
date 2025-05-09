@@ -1,9 +1,39 @@
 <script setup lang="ts">
-// import NavBar from '@/components/NavBar.vue';
 import NavBar from '@/components/NavBar.vue';
 import { ref, computed, onMounted } from 'vue';
 
 type TabType = 'logs' | 'commands' | 'metrics' | 'command-palette';
+
+interface LogEntry {
+  time: string;
+  job?: string;
+  duration?: string;
+  status?: string;
+  endTime?: string;
+  message?: string;
+  error?: string;
+  details?: string;
+}
+
+interface CommandEntry {
+  time: string;
+  command: string;
+  source: string;
+  message: string;
+  instance: string;
+  level: string;
+}
+
+interface MetricEntry {
+  metric: string;
+  value: string;
+  trend: string;
+}
+
+interface PaletteEntry {
+  shortcut: string;
+  action: string;
+}
 
 const activeTab = ref<TabType>('logs');
 const isMobile = ref(false);
@@ -19,8 +49,8 @@ const tabs = [
   { id: 'command-palette', label: 'Command palette', description: 'Everything you need is just a few keystrokes away' }
 ];
 
-const content = computed(() => {
-  return {
+const content = computed<(LogEntry | CommandEntry | MetricEntry | PaletteEntry)[]>(() => {
+  const data = {
     logs: [
       { time: '15:01:32.471 UTC', job: 'App\\Jobs\\UploadFile', duration: '26.07ms', status: 'DONE', endTime: '15:02:42.134 UTC', message: 'INFO: Sending daily digest' },
       { time: '15:03:23.421 UTC', job: 'App\\Jobs\\UploadFile', status: 'RUNNING' },
@@ -39,7 +69,9 @@ const content = computed(() => {
       { shortcut: 'Ctrl+L', action: 'Focus logs' },
       { shortcut: 'Ctrl+M', action: 'Show metrics' }
     ]
-  }[activeTab.value];
+  };
+  
+  return data[activeTab.value] || [];
 });
 
 onMounted(() => {
@@ -62,7 +94,7 @@ onMounted(() => {
       </p>
 
       <div class="flex flex-col md:flex-row gap-8 border-l-green-100 border-l-2">
-        <!-- Navigation tabs - vertical on desktop, horizontal on mobile -->
+        <!-- Navigation tabs -->
         <div 
           class="flex md:flex-col overflow-x-auto pb-4 md:pb-0 gap-1"
           :class="{
@@ -90,7 +122,11 @@ onMounted(() => {
         <div class="flex-1 bg-gray-50 dark:bg-gray-800 rounded-xl p-6 min-h-[400px]">
           <!-- Logs content -->
           <div v-if="activeTab === 'logs'" class="space-y-4">
-            <div v-for="(log, index) in content" :key="index" class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm">
+            <div 
+              v-for="(log, index) in content as LogEntry[]" 
+              :key="index" 
+              class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+            >
               <div class="flex items-start gap-4">
                 <div class="text-xs text-gray-500 dark:text-gray-400 w-24 flex-shrink-0">{{ log.time }}</div>
                 <div class="flex-1">
@@ -108,11 +144,15 @@ onMounted(() => {
                   <div v-if="log.error" class="text-red-600 dark:text-red-400 text-sm mt-1">{{ log.error }}</div>
                   <div v-if="log.details" class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ log.details }}</div>
                 </div>
-                <div v-if="log.status" class="px-2 py-1 text-xs rounded-full" :class="{
-                  'bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200': log.status === 'DONE',
-                  'bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200': log.status === 'RUNNING',
-                  'bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200': log.status === 'ERROR'
-                }">
+                <div 
+                  v-if="log.status" 
+                  class="px-2 py-1 text-xs rounded-full" 
+                  :class="{
+                    'bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200': log.status === 'DONE',
+                    'bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200': log.status === 'RUNNING',
+                    'bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200': log.status === 'ERROR'
+                  }"
+                >
                   {{ log.status }}
                 </div>
               </div>
@@ -121,7 +161,11 @@ onMounted(() => {
 
           <!-- Commands content -->
           <div v-if="activeTab === 'commands'" class="space-y-4">
-            <div v-for="(cmd, index) in content" :key="index" class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm">
+            <div 
+              v-for="(cmd, index) in content as CommandEntry[]" 
+              :key="index" 
+              class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+            >
               <div class="flex items-start gap-4">
                 <div class="text-xs text-gray-500 dark:text-gray-400 w-24 flex-shrink-0">{{ cmd.time }}</div>
                 <div class="flex-1">
@@ -147,7 +191,11 @@ onMounted(() => {
 
           <!-- Metrics content -->
           <div v-if="activeTab === 'metrics'" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div v-for="(metric, index) in content" :key="index" class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm">
+            <div 
+              v-for="(metric, index) in content as MetricEntry[]" 
+              :key="index" 
+              class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+            >
               <div class="flex justify-between items-start">
                 <div>
                   <div class="text-gray-500 dark:text-gray-400 text-sm">{{ metric.metric }}</div>
@@ -174,7 +222,11 @@ onMounted(() => {
 
           <!-- Command palette content -->
           <div v-if="activeTab === 'command-palette'" class="space-y-4">
-            <div v-for="(item, index) in content" :key="index" class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm flex items-center">
+            <div 
+              v-for="(item, index) in content as PaletteEntry[]" 
+              :key="index" 
+              class="p-4 rounded-lg bg-white dark:bg-gray-700 shadow-sm flex items-center"
+            >
               <div class="bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded font-mono text-sm mr-4">
                 {{ item.shortcut }}
               </div>
@@ -193,3 +245,25 @@ onMounted(() => {
   border-radius: 8px;
 }
 </style>
+<!-- Principales corrections apportées :
+Typage des données :
+
+Ajout d'interfaces spécifiques pour chaque type d'entrée (LogEntry, CommandEntry, MetricEntry, PaletteEntry)
+Meilleure gestion des propriétés optionnelles avec ?
+Correction du problème 'status' :
+
+La propriété status est maintenant correctement typée dans l'interface LogEntry
+Vérification d'existence avec v-if="log.status" avant l'utilisation
+Typage fort du contenu :
+
+Utilisation de casts explicites (as LogEntry[], etc.) dans le template
+Meilleure sécurité type lors de l'accès aux propriétés
+Structure améliorée :
+
+Séparation claire des différents types de données
+Code plus maintenable et plus facile à étendre
+Gestion des cas optionnels :
+
+Toutes les propriétés non obligatoires sont marquées comme optionnelles
+Affichage conditionnel des éléments avec v-if
+Ces corrections garantissent que TypeScript comprend correctement la structure de vos données et évite les erreurs de compilation tout en maintenant une excellente expérience utilisateur. -->
