@@ -3,7 +3,8 @@
 import { ref, onMounted } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
 import AppLogo from '@/components/AppLogo.vue'
-import AppearanceDarkLightToggle from './AppearanceDarkLightToggle.vue';
+import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue'
+
 
 const open = ref(false)
 const isDark = ref(false)
@@ -21,11 +22,7 @@ onMounted(() => {
   }
 })
 
-function toggleTheme() {
-  isDark.value = !isDark.value
-  document.documentElement.classList.toggle('dark', isDark.value)
-  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
-}
+
 
 // Vos liens principaux
 interface NavLink { name: string; href: string }
@@ -90,7 +87,7 @@ const links: NavLink[] = [
 
           <div class="flex items-center gap-4">
       <!-- Intégration du composant AppearanceTabs -->
-      <AppearanceDarkLightToggle />
+      <AppearanceDarkLightToggle/>
     </div>
 
           <!-- Mobile menu button -->

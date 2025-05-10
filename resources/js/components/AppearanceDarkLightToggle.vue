@@ -31,7 +31,7 @@ const applyTheme = (newTheme: Theme): void => {
 }
 
 // Détection du thème système avec cleanup
-const systemThemeListener = (e: MediaQueryListEvent) => {
+const systemThemeListener = () => {
   if (theme.value === 'system') {
     applyTheme('system')
   }
