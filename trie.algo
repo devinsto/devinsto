@@ -1,0 +1,43 @@
+Type Article
+    Code : Chaîne
+    Titre : Chaîne
+    Auteur : Chaîne
+    Quantité : Entier
+Fin Type
+
+// Tableau trié par Code
+Tableau Livres[1..n] de Article
+Variable n : Entier // Nombre actuel d'articles
+
+PROCEDURE InsererArticle(code : Chaîne, titre : Chaîne, auteur : Chaîne, quantite : Entier)
+// But : Insère un nouvel article dans le tableau trié, en maintenant l'ordre par Code
+// Entrée : code, titre, auteur, quantite (données du nouvel article)
+// Sortie : Tableau mis à jour ou message d'erreur si le Code existe déjà
+
+DÉBUT
+    // Vérifier si le Code existe déjà (recherche linéaire pour simplicité)
+    POUR i DE 1 À n FAIRE
+        SI Livres[i].Code = code ALORS
+            AFFICHER "Erreur : Un article avec le code ", code, " existe déjà"
+            RETOURNER
+        FIN SI
+    FIN POUR
+
+    // Trouver la position d'insertion pour maintenir le tri
+    i ← n
+    TANT QUE i ≥ 1 ET Livres[i].Code > code FAIRE
+        Livres[i+1] ← Livres[i] // Décaler l'élément vers la droite
+        i ← i - 1
+    FIN TANT QUE
+
+    // Insérer le nouvel article à la position i+1
+    Livres[i+1].Code ← code
+    Livres[i+1].Titre ← titre
+    Livres[i+1].Auteur ← auteur
+    Livres[i+1].Quantité ← quantite
+
+    // Augmenter la taille du tableau
+    n ← n + 1
+
+    AFFICHER "Article inséré avec succès : ", titre
+FIN
