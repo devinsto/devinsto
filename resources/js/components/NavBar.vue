@@ -1,6 +1,5 @@
 <!-- resources/js/Components/NavBar.vue -->
 <script setup lang="ts">
-import AppearanceTabs from '@/components/AppearanceTabs.vue';
 import { ref, onMounted } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
 import AppLogo from '@/components/AppLogo.vue'
