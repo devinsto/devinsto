@@ -10,7 +10,6 @@ import AuthBase from '@/layouts/AuthLayout.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
-
 defineProps<{
     status?: string;
     canResetPassword: boolean;
@@ -30,7 +29,7 @@ const submit = () => {
 </script>
 
 <template>
-      <NavBar />
+    <NavBar />
     <AuthBase title="Log in to your account" description="Enter your email and password below to log in">
         <Head title="Log in" />
 
@@ -45,7 +44,6 @@ const submit = () => {
                     <Input
                         id="email"
                         type="email"
-                        
                         autofocus
                         :tabindex="1"
                         autocomplete="email"
@@ -65,7 +63,6 @@ const submit = () => {
                     <Input
                         id="password"
                         type="password"
-                        
                         :tabindex="2"
                         autocomplete="current-password"
                         v-model="form.password"
@@ -87,7 +84,7 @@ const submit = () => {
                 </Button>
             </div>
 
-            <div class="text-center text-sm text-muted-foreground">
+            <div class="text-muted-foreground text-center text-sm">
                 Don't have an account?
                 <TextLink :href="route('register')" :tabindex="5">Sign up</TextLink>
             </div>

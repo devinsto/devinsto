@@ -15,10 +15,7 @@ const page = usePage<SharedData>();
         <SidebarGroupLabel>Platform</SidebarGroupLabel>
         <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-                <SidebarMenuButton  
-                    as-child :is-active="item.href === page.url"
-                    :tooltip="item.title" 
-                >
+                <SidebarMenuButton as-child :is-active="item.href === page.url" :tooltip="item.title">
                     <Link :href="item.href" prefetch>
                         <component :is="item.icon" />
                         <span>{{ item.title }}</span>
@@ -27,6 +24,5 @@ const page = usePage<SharedData>();
             </SidebarMenuItem>
         </SidebarMenu>
         <SidebarGroupLabel>Platform</SidebarGroupLabel>
-
     </SidebarGroup>
 </template>

@@ -5,9 +5,9 @@ import AppearanceTabs from '@/components/AppearanceTabs.vue';
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { type BreadcrumbItem } from '@/types';
 
+import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
-import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {

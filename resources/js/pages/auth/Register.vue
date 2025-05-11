@@ -10,7 +10,6 @@ import { LoaderCircle } from 'lucide-vue-next';
 // import NavBar from '../../components/Navbar.vue'
 import NavBar from '@/components/NavBar.vue';
 
-
 const form = useForm({
     name: '',
     email: '',
@@ -26,7 +25,7 @@ const submit = () => {
 </script>
 
 <template>
-      <NavBar />
+    <NavBar />
     <AuthBase title="Create an account" description="Enter your details below to create your account">
         <Head title="Register" />
 
@@ -34,27 +33,19 @@ const submit = () => {
             <div class="grid gap-6">
                 <div class="grid gap-2">
                     <Label for="name">Name</Label>
-                    <Input id="name" type="text"  autofocus :tabindex="1" autocomplete="name" v-model="form.name" placeholder="Votre nom+++"/>
+                    <Input id="name" type="text" autofocus :tabindex="1" autocomplete="name" v-model="form.name" placeholder="Votre nom+++" />
                     <InputError :message="form.errors.name" />
                 </div>
 
                 <div class="grid gap-2">
                     <Label for="email">Email address</Label>
-                    <Input id="email" type="email"  :tabindex="2" autocomplete="email" v-model="form.email" placeholder="email@example.com" />
+                    <Input id="email" type="email" :tabindex="2" autocomplete="email" v-model="form.email" placeholder="email@example.com" />
                     <InputError :message="form.errors.email" />
                 </div>
 
                 <div class="grid gap-2">
                     <Label for="password">Password</Label>
-                    <Input
-                        id="password"
-                        type="password"
-                        
-                        :tabindex="3"
-                        autocomplete="new-password"
-                        v-model="form.password"
-                        placeholder="Password"
-                    />
+                    <Input id="password" type="password" :tabindex="3" autocomplete="new-password" v-model="form.password" placeholder="Password" />
                     <InputError :message="form.errors.password" />
                 </div>
 
@@ -63,7 +54,6 @@ const submit = () => {
                     <Input
                         id="password_confirmation"
                         type="password"
-                        
                         :tabindex="4"
                         autocomplete="new-password"
                         v-model="form.password_confirmation"
@@ -78,7 +68,7 @@ const submit = () => {
                 </Button>
             </div>
 
-            <div class="text-center text-sm text-muted-foreground">
+            <div class="text-muted-foreground text-center text-sm">
                 Already have an account?
                 <TextLink :href="route('login')" class="underline underline-offset-4" :tabindex="6">Log in</TextLink>
             </div>
