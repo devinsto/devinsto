@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 
 @import 'tw-animate-css';
+@import '@fontsource/barlow-semi-condensed/700.css';
+@import '@fontsource/nunito-sans/400.css';
+@import '@fontsource/nunito-sans/600.css';
+
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -75,13 +79,21 @@
         border-color: var(--color-gray-200, currentColor);
     }
 }
-
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+   h1, h2, h3, h4, h5 {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 700;
+}
 @layer utilities {
     body,
     html {
         --font-sans:
-            'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            /* 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; */
+            'Nunito Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     }
+ 
 }
 
 :root {

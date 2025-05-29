@@ -102,10 +102,7 @@ onMounted(() => {
 
 <template>
     <NavBar />
-    <div class="welcome-container p-6">
-        <h1 class="mb-4 text-4xl font-bold">Bienvenue sur notre plateforme d'apprentissage</h1>
-        <p>Explorez nos cours, articles de blog et plus encore pour enrichir vos compétences.</p>
-    </div>
+    
     <section class="bg-white px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
         <div class="mx-auto max-w-7xl">
             <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Everything you need, included</h2>
@@ -286,6 +283,10 @@ onMounted(() => {
             </div>
         </div>
     </section>
+    <section class="bg-white px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
+     gggg   
+    </section>
+    
 </template>
 
 <style scoped>
