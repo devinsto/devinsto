@@ -4,19 +4,17 @@ import NavBar from '@/components/NavBar.vue';
 <template>
     <NavBar />
 
-    <section class="bg-white px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
+    <section class="bg-white px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900 ">
         <div>
-            <h4 class="text-5xl">Dernières articles</h4>
-            <p class="text-xl">La plateforme ultime pour apprendre, collaborer encore.</p>
+            <h4 class="text-5xl xl:text-2xl mb-1">Dernières articles</h4>
+            <p class="text-base xl:text-xl">La plateforme ultime pour apprendre, collaborer encore.</p>
         </div>
 
-        <div class="grid grid-cols-2 gap-6">
-
-            <div>
-
+        <div class="grid grid-cols-1  xl:grid-cols-2 gap-6 mt-6 ">
+            <div class="">
                 <img src="/storage/homeLastPost/c.jpeg" alt="Dernier article" class="object-fit-cover rounded-xl">
                 <div class="mt-2">
-                    <h5 class="text-2xl">Construire des projets en développement </h5>
+                    <h5 class="text-2xl xl:text-4xl">Construire des projets en développement </h5>
                     <p class="mt-2 mb-4"> et construire des projets en développement web, graphisme, et bien plus et
                         construire des projets en développement web, graphisme, et bien plus </p>
                     <div class="flex items-center justify-between">
@@ -26,10 +24,21 @@ import NavBar from '@/components/NavBar.vue';
                 </div>
             </div>
 
-
-            <div class="-space-x-2">
-                <div class="flex gap-4">
-                    <img src="/storage/homeLastPost/c.jpeg" alt="Dernier article" class="object-cover rounded-xl w-36 h-36">
+            <div class="space-y-6">
+                <div class="flex flex-col xl:flex-row gap-4">
+                    <img src="/storage/homeLastPost/c.jpeg" alt="Dernier article" class="object-cover rounded-xl xl:w-36 xl:h-36">
+                    <div class="mt-2">
+                        <h5 class="text-2xl ">Construire des projets en développement </h5>
+                        <p class="mt-2 mb-4"> et construire des projets en développement web, graphisme, et bien plus et
+                            construire des projets en développement web, graphisme, et bien plus </p>
+                        <div class="flex items-center justify-between">
+                            <p class="italic"> Pulic le 29 Mi 2025</p>
+                            <p class="border rounded-full px-2">developpement web</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col xl:flex-row  gap-4">
+                    <img src="/storage/homeLastPost/a.webp" alt="Dernier article" class="object-cover rounded-xl xl:w-36 xl:h-36">
                     <div class="mt-2">
                         <h5 class="text-2xl">Construire des projets en développement </h5>
                         <p class="mt-2 mb-4"> et construire des projets en développement web, graphisme, et bien plus et
@@ -40,8 +49,8 @@ import NavBar from '@/components/NavBar.vue';
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <img src="/storage/homeLastPost/a.webp" alt="Dernier article" class="object-cover rounded-xl w-36 h-36">
+                <div class="flex flex-col xl:flex-row  gap-4">
+                    <img src="/storage/homeLastPost/b.jpg" alt="Dernier article" class="object-cover rounded-xl xl:w-36 xl:h-36">
                     <div class="mt-2">
                         <h5 class="text-2xl">Construire des projets en développement </h5>
                         <p class="mt-2 mb-4"> et construire des projets en développement web, graphisme, et bien plus et
@@ -52,22 +61,9 @@ import NavBar from '@/components/NavBar.vue';
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <img src="/storage/homeLastPost/b.jpg" alt="Dernier article" class="object-cover rounded-xl w-36 h-36">
-                    <div class="mt-2">
-                        <h5 class="text-2xl">Construire des projets en développement </h5>
-                        <p class="mt-2 mb-4"> et construire des projets en développement web, graphisme, et bien plus et
-                            construire des projets en développement web, graphisme, et bien plus </p>
-                        <div class="flex items-center justify-between">
-                            <p class="italic"> Pulic le 29 Mi 2025</p>
-                            <p class="border rounded-full px-2">developpement web</p>
-                        </div>
-                    </div>
-                </div>
+                <button class="rounded-full font-bold border py-2 px-6  self-center">Voir tous les articles</button>
             </div>
         </div>
-
-
     </section>
 
 </template>

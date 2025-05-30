@@ -8,7 +8,7 @@ const { theme, toggleTheme } = useAppearanceDarkLightToggle();
     <!-- Bouton bascule de thème -->
     <button
         @click="toggleTheme"
-        class="group relative flex h-6 w-10 cursor-pointer items-center justify-center overflow-visible rounded-full bg-neutral-200 transition-colors hover:border-1 hover:border-green-200 dark:bg-neutral-700"
+        class="group relative flex h-6 w-12 cursor-pointer items-center justify-center overflow-visible rounded-full bg-neutral-200 transition-colors hover:border-1 hover:border-green-200 dark:bg-neutral-700"
         :aria-pressed="theme !== 'light'"
         aria-label="Toggle color scheme"
     >

@@ -71,10 +71,11 @@ const links: NavLink[] = [
 
                     <!-- Mobile menu button -->
                     <button
-                        @click="open = !open"
-                        class="focus:ring-primary text-foreground hover:text-primary rounded p-2 focus:ring focus:outline-none md:hidden"
-                        aria-label="Toggle menu"
+                    @click="open = !open"
+                    class="focus:ring-primary text-foreground hover:text-primary rounded p-2 focus:ring focus:outline-none md:hidden flex gap-1"
+                    aria-label="Toggle menu"
                     >
+                    Menu
                         <svg v-if="!open" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
