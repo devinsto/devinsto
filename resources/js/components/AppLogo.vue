@@ -12,7 +12,7 @@ import AppLogoIcon from '@/components/AppLogoIcon.vue';
 </template>
 <style>
 .dim {
-    padding-top: 20%;
+    padding-top: 40%;
     transform: scale(0.3);
 }
 </style>

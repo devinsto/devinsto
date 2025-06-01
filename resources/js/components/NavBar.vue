@@ -1,12 +1,14 @@
-<!-- resources/js/Components/NavBar.vue -->
+<!-- resources/js/Components/headerBar.vue -->
 <script setup lang="ts">
-import AppLogo from '@/components/AppLogo.vue';
+
 import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
 import { Link, usePage } from '@inertiajs/vue3';
-import { onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+import AppLogo from './AppLogo.vue';
 
 const open = ref(false);
 const isDark = ref(false);
+const hasShadow = ref(false);
 
 // Récupère l'utilisateur connecté depuis Inertia
 const page = usePage<{ auth: { user: any } }>();
@@ -21,12 +23,23 @@ onMounted(() => {
     }
 });
 
+// Ombre au scroll
+const handleScroll = () => {
+    hasShadow.value = window.scrollY > 10;
+};
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
+
 // Vos liens principaux
-interface NavLink {
+interface headerLink {
     name: string;
     href: string;
 }
-const links: NavLink[] = [
+const links: headerLink[] = [
     { name: 'Home', href: '/' },
     { name: 'À propos', href: '/about' },
     { name: 'Formations', href: '/courses' },
@@ -35,17 +48,22 @@ const links: NavLink[] = [
 </script>
 
 <template>
-    <nav class="bg-background border-border border-b">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
+
+    <header :class="['sticky top-0 z-50   dark:bg-gray-900 bg-rose-600 border-border border-b transition-shadow', hasShadow ? 'shadow-lg' : 'shadow-none']">
+        <div class="topHead h-10 bg-primary  sm:px-6 lg:px-8 flex items-center justify-center">
+            <div class="hos">Hosted by</div>
+
+        </div>
+        <nav class="mx-auto max-w-[95rem] px-4 sm:px-6 lg:px-8 " >
+            <div class="flex h-16 items-center justify-between ">
                 <!-- Logo + Desktop Links -->
-                <div class="flex items-center">
-                    <Link href="/" class="mr-8 flex items-center">
-                        <div class="flex h-8 w-8 items-center justify-center rounded-md pt-4">
-                            <AppLogo class="text-primary-foreground dark:text-primary-foreground dim h-5 w-5 fill-current" />
-                        </div>
-                        <span class="text-primary ml-2 text-xl font-bold">Devinsto</span>
-                    </Link>
+                <Link href="/" class="mr-8 flex items-center">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-md pt-9">
+                        <AppLogo class="text-primary-foreground dark:text-primary-foreground dim h-5 w-5 fill-current" />
+                    </div>
+                    <span class="text-primary ml-2 text-xl font-bold">Devinsto</span>
+                </Link>
+                <div class="flex items-center ">
                     <div class="hidden space-x-6 md:flex">
                         <Link v-for="link in links" :key="link.name" :href="link.href" class="text-foreground hover:text-primary transition">
                             {{ link.name }}
@@ -85,7 +103,7 @@ const links: NavLink[] = [
                     </button>
                 </div>
             </div>
-        </div>
+        </nav>
 
         <!-- Mobile menu -->
         <div v-show="open" class="border-border bg-background border-t md:hidden">
@@ -99,10 +117,7 @@ const links: NavLink[] = [
                     class="text-foreground hover:bg-muted hover:text-primary block rounded-md px-3 py-2 text-base font-medium transition"
                 >
                     <template v-if="link.name === 'Devinsto.com'">
-                        <div class="inline-flex items-center">
-                            <AppLogoIcon class="text-foreground dark:text-foreground h-5 w-5 fill-current" />
-                            <span class="ml-2">Devinsto.com</span>
-                        </div>
+                      Profil
                     </template>
                     <template v-else>{{ link.name }}</template>
                 </Link>
@@ -136,15 +151,15 @@ const links: NavLink[] = [
                 </div>
             </div>
         </div>
-    </nav>
+    </header>
 </template>
 
 <style scoped>
 .dim {
-    padding-top: 30%;
+    /* padding-top: 30%; */
     transform: scale(0.3);
 }
-nav {
+header {
     background-color: var(--color-background);
     color: var(--color-foreground);
 }

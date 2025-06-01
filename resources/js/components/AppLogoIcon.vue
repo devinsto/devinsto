@@ -73,7 +73,7 @@ defineProps<Props>();
 
 <style>
 .svgBox {
-    padding-top: 100%;
+    /* padding-top: 100%; */
     position: relative;
     width: 200px;
     height: 200px;
@@ -84,7 +84,6 @@ defineProps<Props>();
     width: 96.427px;
     height: 77.88px;
 }
-
 .svgBox svg path {
     fill: none;
     stroke: url(#rosto);

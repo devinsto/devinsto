@@ -1,9 +1,6 @@
 @import 'tailwindcss';
 
 @import 'tw-animate-css';
-@import '@fontsource/barlow-semi-condensed/700.css';
-@import '@fontsource/nunito-sans/400.css';
-@import '@fontsource/nunito-sans/600.css';
 
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -79,12 +76,75 @@
         border-color: var(--color-gray-200, currentColor);
     }
 }
-body {
-  font-family: 'Nunito Sans', sans-serif;
+/* Déclaration des polices Nunito locales */
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
-   h1, h2, h3, h4, h5 {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-Bold.ttf') format('truetype');
   font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('../font/Nunito-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+body, html {
+  font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800; /* ou 800, 700 selon le niveau */
+
 }
 @layer utilities {
     body,
@@ -104,6 +164,7 @@ body {
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(0 0% 3.9%);
     --primary: #09de7f; /* emerald-500 */
+    --primary2: #012113; /* emerald-500 */
     --primary-foreground: hsl(0 0% 98%);
     --secondary: #33f59f; /* emerald-400 */
     --secondary-foreground: hsl(0 0% 9%);
@@ -134,7 +195,7 @@ body {
 }
 
 .dark {
-    --background: hsl(0 0% 3.9%);
+    --background: hsl(129, 83%, 5%);
     --foreground: hsl(0 0% 98%);
     --card: hsl(0 0% 3.9%);
     --card-foreground: hsl(0 0% 98%);

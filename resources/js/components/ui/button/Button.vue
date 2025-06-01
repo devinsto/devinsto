@@ -9,7 +9,6 @@ interface Props extends PrimitiveProps {
   size?: ButtonVariants['size']
   class?: HTMLAttributes['class']
 }
-
 const props = withDefaults(defineProps<Props>(), {
   as: 'button',
 })
