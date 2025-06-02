@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue'; // Import ajouté
 import { ref } from 'vue';
+import FooterSite from './FooterSite.vue';
 // Types
 type TabType = 'formation' | 'graphisme' | 'maintenance' | 'montage';
 
@@ -180,6 +181,8 @@ const filteredItems = () => {
             </div>
         </div>
     </section>
+<FooterSite/>
+
 </template>
 
 <style>

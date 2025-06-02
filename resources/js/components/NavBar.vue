@@ -49,7 +49,7 @@ const links: headerLink[] = [
 
 <template>
 
-    <header :class="['sticky top-0 z-50   dark:bg-gray-900 bg-rose-600 border-border border-b transition-shadow', hasShadow ? 'shadow-lg' : 'shadow-none']">
+    <header :class="['sticky top-0 z-50 bg-white  overflow-hidden dark:bg-gray-900 border-border border-b transition-shadow', hasShadow ? 'shadow-lg' : 'shadow-none']">
         <div class="topHead h-10 bg-primary  sm:px-6 lg:px-8 flex items-center justify-center">
             <div class="hos">Hosted by</div>
 
@@ -157,10 +157,7 @@ const links: headerLink[] = [
 <style scoped>
 .dim {
     /* padding-top: 30%; */
-    transform: scale(0.3);
+    transform: scale(0.3) !important;
 }
-header {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-}
+
 </style>

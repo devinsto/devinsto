@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
 import { ref } from 'vue';
+import FooterSite from './FooterSite.vue';
 
 // Define the theme property
 const theme = ref('light'); // Default theme can be 'light' or 'dark'
@@ -8,7 +9,10 @@ const theme = ref('light'); // Default theme can be 'light' or 'dark'
 
 <template>
     <NavBar />
-    <div :class="['about-container', theme.value]" class="p-7">
+ <section class=" px-4 py-12 sm:px-6 lg:px-8  dark:bg-gray-900">
+        <div class="mx-auto max-w-7xl"> 
+    
+    <div  class="">
         <h1 class="mb-4 text-4xl font-bold">À Propos de Nous</h1>
         <p class="mb-4">
             <strong>À propos de Devinsto.com</strong><br />
@@ -112,20 +116,11 @@ const theme = ref('light'); // Default theme can be 'light' or 'dark'
                 de la croissance de la plateforme.
             </li>
         </ul>
-        <h3 class="mb-2 text-2xl font-semibold">Postes actuellement disponibles :</h3>
-        <ul class="list-disc pl-6">
-            <li>Développeur(se) Full-stack</li>
-            <li>Designer graphique UX/UI</li>
-            <li>Responsable marketing digital</li>
-            <li>Formateur(trice) spécialisé(e) en développement web ou mobile</li>
-            <li>Community manager</li>
-            <li>Chargé(e) de la relation client</li>
-        </ul>
-        <p class="mt-4">
-            Si vous êtes intéressé(e) par l'un de ces postes ou si vous avez une expertise dans un domaine en lien avec notre mission, envoyez-nous
-            votre CV et lettre de motivation à [adresse e-mail] ou postulez directement via notre site web.
-        </p>
+        
     </div>
+</div>
+</section>
+<FooterSite/>
 </template>
 
 <style scoped>

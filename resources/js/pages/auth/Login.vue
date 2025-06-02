@@ -30,7 +30,7 @@ const submit = () => {
 
 <template>
     <NavBar />
-    <AuthBase title="Log in to your account" description="Enter your email and password below to log in">
+    <AuthBase title="Connectez-vous à votre compte" description="Entrez votre email et votre mot de passe ci-dessous pour vous connecter">
         <Head title="Log in" />
 
         <div v-if="status" class="mb-4 text-center text-sm font-medium text-green-600">
@@ -85,8 +85,8 @@ const submit = () => {
             </div>
 
             <div class="text-muted-foreground text-center text-sm">
-                Vous avez déjà un compte?
-                <TextLink :href="route('register')" :tabindex="5">Connectez-vous</TextLink>
+                Vous n'avez pas encore de compte ? 
+                <TextLink :href="route('register')" :tabindex="5">Créez-en un.</TextLink>
             </div>
         </form>
     </AuthBase>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
 import { computed, ref } from 'vue';
+import FooterSite from './FooterSite.vue';
 
 interface Article {
     id: number;
@@ -156,21 +157,20 @@ const visibleArticles = computed(() => articles.value.slice(0, 4));
                 </div>
             </div>
         </main>
+<FooterSite/>
+
     </div>
 </template>
 
 <style scoped>
 .line-clamp-2 {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+ 
     overflow: hidden;
 }
 
 .line-clamp-3 {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
 }
 </style>
