@@ -19,12 +19,12 @@ const user = page.props.auth.user;
         </div>
         <div class="text-center">
                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight ">
-                <span class="text-green-500 text-7xl">Devinsto</span>
+                <span class="text-primary dark:text-primary text-7xl">Devinsto</span>
                 <br>
-                <span class="">Apprenez, Créez, Collaborez sans limites.</span>
+                <span class="dark:text-[#eefff6]">Apprenez, Créez, Collaborez sans limites.</span>
             </h1>
             
-            <p class="mt-6 text-2xl ">
+            <p class="mt-6 text-2xl dark:text-[#eefff5]">
                 La plateforme ultime pour apprendre, collaborer et construire des projets en développement web,
                 graphisme, et bien plus encore.
             </p>

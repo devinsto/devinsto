@@ -23,25 +23,25 @@ const mainNavItems: NavItem[] = [
 ];
 
 const footerNavItems: NavItem[] = [
-    // {
-    //     title: 'Github Repo',
-    //     href: 'https://github.com/laravel/vue-starter-kit',
-    //     icon: Folder,
-    // },
-    // {
-    //     title: 'Documentation',
-    //     href: 'https://laravel.com/docs/starter-kits#vue',
-    //     icon: BookOpen,
-    // },
+     {
+        title: 'Github Repo',
+       href: '#',
+       icon: Home,
+    },
+   {
+       title: 'Documentation',
+       href: '#',
+      icon: Home,
+    },
 ];
 </script>
 
 <template>
-    <Sidebar collapsible="icon" variant="inset">
-        <SidebarHeader>
-            <SidebarMenu>
+    <Sidebar collapsible="icon" variant="inset" class="text-primary bg-[#0ad170a]">
+        <SidebarHeader class="">
+            <SidebarMenu >
                 <SidebarMenuItem>
-                    <SidebarMenuButton size="lg" as-child>
+                    <SidebarMenuButton size="lg" as-child >
                         <Link :href="route('dashboard')" prefetch>
                             <AppLogo />
                         </Link>
@@ -50,11 +50,11 @@ const footerNavItems: NavItem[] = [
             </SidebarMenu>
         </SidebarHeader>
 
-        <SidebarContent>
+        <SidebarContent class="bg-[#ee] ">
             <NavMain :items="mainNavItems" />
         </SidebarContent>
 
-        <SidebarFooter>
+        <SidebarFooter class="bg-[#ee] ">
             <NavFooter :items="footerNavItems" />
             <NavUser />
         </SidebarFooter>
