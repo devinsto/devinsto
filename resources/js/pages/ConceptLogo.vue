@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import FooterSite from './FooterSite.vue'
 import NavBar from '@/components/NavBar.vue'
+import { Head } from '@inertiajs/vue3'
 import { ArrowRight, Code, Eye, Globe, Infinity, Layers, PenTool, Sparkles } from 'lucide-vue-next'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import FooterSite from './FooterSite.vue'
 
 const showSections = ref([false, false, false, false, false])
 
@@ -14,10 +15,47 @@ onMounted(() => {
     timeout += 350
   })
 })
+
+// SEO JSON-LD (AboutPage)
+const conceptJsonLd = computed(() =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Concept du Logo Devinsto",
+    "description": "Découvrez la signification et la vision derrière le logo Devinsto : développement, création, visibilité, innovation.",
+    "url": "https://devinsto.com/concept-logo"
+  })
+)
+
+// Injection dynamique du JSON-LD dans le <head>
+const injectJsonLd = () => {
+  let script = document.getElementById('concept-jsonld') as HTMLScriptElement | null
+  if (script) script.remove()
+  script = document.createElement('script') as HTMLScriptElement
+  script.type = 'application/ld+json'
+  script.id = 'concept-jsonld'
+  script.text = conceptJsonLd.value
+  document.head.appendChild(script)
+}
+
+onMounted(() => {
+  injectJsonLd()
+})
+watch(conceptJsonLd, injectJsonLd)
 </script>
 
 <template>
   <div class="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col">
+    <Head>
+      <title>Concept du Logo Devinsto | Développement, Création, Visibilité</title>
+      <meta name="description" content="Découvrez la signification et la vision derrière le logo Devinsto : développement, création, visibilité, innovation. Plateforme tout-en-un pour transformer vos idées en projets." />
+      <meta property="og:title" content="Concept du Logo Devinsto | Développement, Création, Visibilité" />
+      <meta property="og:description" content="Découvrez la signification et la vision derrière le logo Devinsto : développement, création, visibilité, innovation." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://devinsto.com/concept-logo" />
+      <meta property="og:site_name" content="Devinsto.com" />
+      <meta name="robots" content="index, follow" />
+    </Head>
     <NavBar />
     <main class="flex-1">
       <!-- Hero -->

@@ -1,10 +1,10 @@
 <!-- filepath: /home/devinsto/sites/devinsto/resources/js/pages/FaqConfig.vue -->
 <script setup lang="ts">
-import FooterSite from './FooterSite.vue'
+import { onMounted, watch, computed, ref } from 'vue'
 import NavBar from '@/components/NavBar.vue'
+import { Head } from '@inertiajs/vue3'
 import { ChevronDown, HelpCircle } from 'lucide-vue-next'
-import { ref } from 'vue'
-
+import FooterSite from './FooterSite.vue'
 const faqs = [
   {
     question: "Qu'est-ce que Devinsto.com ?",
@@ -71,15 +71,56 @@ const faqs = [
     answer: `Oui, nous proposons des outils pour créer des sites web avec WordPress, gérer leur maintenance, et déployer des applications via des services comme VPS et Coolify. Nos ressources sont adaptées aussi bien aux débutants qu'aux professionnels cherchant à optimiser leur présence en ligne.`
   }
 ]
-
 const openIndex = ref<number | null>(null)
 const toggle = (idx: number) => {
   openIndex.value = openIndex.value === idx ? null : idx
 }
-</script>
 
+const faqJsonLd = computed(() =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })
+)
+
+// Ajoute dynamiquement le JSON-LD dans le <head>
+const injectJsonLd = () => {
+  let script = document.getElementById('faq-jsonld') as HTMLScriptElement | null
+  if (script) script.remove()
+  script = document.createElement('script') as HTMLScriptElement
+  script.type = 'application/ld+json'
+  script.id = 'faq-jsonld'
+  script.text = faqJsonLd.value
+  document.head.appendChild(script)
+}
+
+onMounted(() => {
+  injectJsonLd()
+})
+watch(faqJsonLd, injectJsonLd)
+</script>
 <template>
   <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col">
+  <Head>
+      <title>FAQ - Questions Fréquentes | Devinsto.com</title>
+      <meta name="description" content="Retrouvez toutes les réponses aux questions fréquentes sur Devinsto.com : cours, abonnements, support, certifications, outils, communauté et plus." />
+      <meta property="og:title" content="FAQ - Questions Fréquentes | Devinsto.com" />
+      <meta property="og:description" content="Toutes les réponses aux questions fréquentes sur Devinsto.com : développement, graphisme, abonnements, support, outils, communauté." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://devinsto.com/faq-config" />
+      <meta property="og:site_name" content="Devinsto.com" />
+      <meta name="robots" content="index, follow" />
+    </Head>
+   
+
     <NavBar />
     <main class="flex-1">
       <div class="bg-gradient-to-r from-emerald-100 to-emerald-200 dark:from-emerald-900/20 dark:to-slate-800/20 border-b border-emerald-200 dark:border-emerald-500/20">
@@ -99,23 +140,28 @@ const toggle = (idx: number) => {
       </div>
 
       <div class="max-w-3xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
-        <div class="space-y-4">
+        <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
           <TransitionGroup name="faq-fade" tag="div">
             <div
               v-for="(faq, idx) in faqs"
               :key="faq.question"
-              class=" mb-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm transition-all duration-300"
+              class="mb-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm transition-all duration-300"
+              itemscope
+              itemprop="mainEntity"
+              itemtype="https://schema.org/Question"
             >
               <button
-                class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none group  border-b-emerald-100 dark:border-b-emerald-900  bg-slate-100 dark:bg-slate-800/40  border-b-2"
+                class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none group border-b-emerald-100 dark:border-b-emerald-900 bg-slate-100 dark:bg-slate-800/40 border-b-2"
                 @click="toggle(idx)"
                 :aria-expanded="openIndex === idx"
+                :aria-controls="'faq-answer-' + idx"
+                :id="'faq-question-' + idx"
               >
                 <span class="flex items-center gap-3 text-lg font-semibold text-slate-900 dark:text-slate-100 transition-colors">
-                  <span class=" w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center mr-2">
+                  <span class="w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center mr-2">
                     <HelpCircle class="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                   </span>
-                  {{ idx + 1 }}. {{ faq.question }}
+                  <span itemprop="name">{{ idx + 1 }}. {{ faq.question }}</span>
                 </span>
                 <span class="transition-transform duration-300"
                   :class="openIndex === idx ? 'rotate-180 text-emerald-700 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'">
@@ -126,9 +172,14 @@ const toggle = (idx: number) => {
                 <div
                   v-if="openIndex === idx"
                   class="px-6 pb-6 pt-1 text-slate-700 dark:text-slate-300 text-base animate-fade-in"
+                  :id="'faq-answer-' + idx"
+                  :aria-labelledby="'faq-question-' + idx"
+                  itemscope
+                  itemprop="acceptedAnswer"
+                  itemtype="https://schema.org/Answer"
                 >
-                  <div v-if="faq.answer.startsWith('<ul')" v-html="faq.answer"></div>
-                  <div v-else v-html="faq.answer"></div>
+                  <div v-if="faq.answer.startsWith('<ul')" v-html="faq.answer" itemprop="text"></div>
+                  <div v-else v-html="faq.answer" itemprop="text"></div>
                 </div>
               </transition>
             </div>
@@ -141,7 +192,6 @@ const toggle = (idx: number) => {
 </template>
 
 <style scoped>
-/* Animation d'apparition pour l'icône */
 @keyframes fade-in-down {
   from { opacity: 0; transform: translateY(-30px);}
   to { opacity: 1; transform: translateY(0);}
@@ -149,8 +199,6 @@ const toggle = (idx: number) => {
 .animate-fade-in-down {
   animation: fade-in-down 0.7s cubic-bezier(.4,0,.2,1);
 }
-
-/* Animation d'accordéon */
 .accordion-enter-active, .accordion-leave-active {
   transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
   overflow: hidden;
@@ -163,8 +211,6 @@ const toggle = (idx: number) => {
   max-height: 500px;
   opacity: 1;
 }
-
-/* Animation de fade sur le groupe */
 .faq-fade-move, .faq-fade-enter-active, .faq-fade-leave-active {
   transition: all 0.3s cubic-bezier(.4,0,.2,1);
 }

@@ -1,8 +1,9 @@
 <!-- filepath: /home/devinsto/sites/devinsto/resources/js/pages/SupportConfig.vue -->
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Mail, MessageCircle, BookOpen, Users, LifeBuoy, Clock, CheckCircle, AlertTriangle, Laptop2, LogIn, CreditCard, Download } from 'lucide-vue-next'
 import NavBar from '@/components/NavBar.vue'
+import { Head } from '@inertiajs/vue3'
+import { AlertTriangle, BookOpen, CheckCircle, Clock, CreditCard, Download, Laptop2, LifeBuoy, LogIn, Mail, MessageCircle, Users } from 'lucide-vue-next'
+import { computed, onMounted, watch } from 'vue'
 import FooterSite from './FooterSite.vue'
 
 const contactOptions = [
@@ -43,10 +44,55 @@ const selfHelp = [
 ]
 
 const currentDate = new Date().toLocaleDateString('fr-FR')
+
+// JSON-LD pour le SEO (ContactPage)
+const supportJsonLd = computed(() =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Support Technique Devinsto.com",
+    "description": "Contactez le support technique Devinsto.com par email, chat en direct ou via notre centre d'aide.",
+    "url": "https://devinsto.com/support-config",
+    "contactOption": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@devinsto.com",
+        "availableLanguage": ["French", "English"]
+      }
+    ]
+  })
+)
+
+// Injection dynamique du JSON-LD dans le <head>
+const injectJsonLd = () => {
+  let script = document.getElementById('support-jsonld') as HTMLScriptElement | null
+  if (script) script.remove()
+  script = document.createElement('script') as HTMLScriptElement
+  script.type = 'application/ld+json'
+  script.id = 'support-jsonld'
+  script.text = supportJsonLd.value
+  document.head.appendChild(script)
+}
+
+onMounted(() => {
+  injectJsonLd()
+})
+watch(supportJsonLd, injectJsonLd)
 </script>
 
 <template>
   <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col">
+    <Head>
+      <title>Support Technique | Devinsto.com</title>
+      <meta name="description" content="Besoin d'aide ? Contactez le support technique Devinsto.com : chat en direct, email, centre d'aide, forum, FAQ et ressources pour résoudre tous vos problèmes." />
+      <meta property="og:title" content="Support Technique | Devinsto.com" />
+      <meta property="og:description" content="Contactez le support technique Devinsto.com : chat, email, centre d'aide, forum, FAQ et ressources pour résoudre tous vos problèmes." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://devinsto.com/support-config" />
+      <meta property="og:site_name" content="Devinsto.com" />
+      <meta name="robots" content="index, follow" />
+    </Head>
     <NavBar />
     <main class="flex-1">
       <div class="bg-gradient-to-r from-emerald-100 to-emerald-200 dark:from-emerald-900/20 dark:to-slate-800/20 border-b border-emerald-200 dark:border-emerald-500/20">
@@ -66,14 +112,14 @@ const currentDate = new Date().toLocaleDateString('fr-FR')
 
       <div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8 space-y-10">
         <!-- Canaux de support -->
-        <section>
+        <section itemscope itemtype="https://schema.org/ContactPoint">
           <h2 class="text-2xl font-semibold text-emerald-700 dark:text-emerald-400 mb-6 flex items-center gap-2">
             <LifeBuoy class="w-6 h-6" /> 1. Canaux de Support
           </h2>
           <div class="grid gap-6 sm:grid-cols-2">
             <div v-for="option in contactOptions" :key="option.title" class="bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-start hover:border-emerald-200 dark:hover:border-emerald-500/30 transition-colors">
               <component :is="option.icon" class="w-7 h-7 mb-2 text-emerald-700 dark:text-emerald-400" />
-              <h3 class="font-semibold text-lg mb-1 text-slate-900 dark:text-slate-100">{{ option.title }}</h3>
+              <h3 class="font-semibold text-lg mb-1 text-slate-900 dark:text-slate-100" itemprop="contactType">{{ option.title }}</h3>
               <p class="text-slate-700 dark:text-slate-300 text-sm">{{ option.desc }}</p>
             </div>
           </div>
@@ -151,7 +197,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR')
           </h2>
           <ul class="space-y-2 text-slate-700 dark:text-slate-300">
             <li><strong>Chat en direct :</strong> Accessible sur toutes les pages du site.</li>
-            <li><strong>Email :</strong> <a href="mailto:support@devinsto.com" class="text-emerald-700 dark:text-emerald-400 underline">support@devinsto.com</a></li>
+            <li><strong>Email :</strong> <a href="mailto:support@devinsto.com" class="text-emerald-700 dark:text-emerald-400 underline" itemprop="email">support@devinsto.com</a></li>
             <li><strong>Formulaire de contact :</strong> Disponible dans notre centre d’aide en ligne.</li>
           </ul>
         </section>

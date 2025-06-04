@@ -1,6 +1,6 @@
 <!-- filepath: /home/devinsto/sites/devinsto/resources/js/pages/CguConfig.vue -->
 <script setup lang="ts">
-import { ref, h } from 'vue'
+import { ref, h, computed, onMounted, watch } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import FooterSite from './FooterSite.vue'
 import {
@@ -136,10 +136,48 @@ const sections: Section[] = [
 ]
 
 const currentDate = new Date().toLocaleDateString('fr-FR')
+
+// Génération du JSON-LD pour le SEO (WebPage/Terms)
+const cguJsonLd = computed(() =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Conditions Générales d'Utilisation (CGU) Devinsto.com",
+    "description": "Consultez les Conditions Générales d'Utilisation (CGU) de Devinsto.com : accès, obligations, propriété intellectuelle, abonnements, confidentialité et plus.",
+    "url": "https://devinsto.com/cgu-config",
+    "dateModified": new Date().toISOString().split('T')[0]
+  })
+)
+
+// Injection dynamique du JSON-LD dans le <head>
+const injectJsonLd = () => {
+  let script = document.getElementById('cgu-jsonld') as HTMLScriptElement | null
+  if (script) script.remove()
+  script = document.createElement('script') as HTMLScriptElement
+  script.type = 'application/ld+json'
+  script.id = 'cgu-jsonld'
+  script.text = cguJsonLd.value
+  document.head.appendChild(script)
+}
+
+onMounted(() => {
+  injectJsonLd()
+})
+watch(cguJsonLd, injectJsonLd)
 </script>
 
 <template>
   <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <Head>
+      <title>Conditions Générales d'Utilisation (CGU) | Devinsto.com</title>
+      <meta name="description" content="Consultez les Conditions Générales d'Utilisation (CGU) de Devinsto.com : accès, obligations, propriété intellectuelle, abonnements, confidentialité et plus." />
+      <meta property="og:title" content="Conditions Générales d'Utilisation (CGU) | Devinsto.com" />
+      <meta property="og:description" content="Consultez les CGU de Devinsto.com : accès, obligations, propriété intellectuelle, abonnements, confidentialité et plus." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://devinsto.com/cgu-config" />
+      <meta property="og:site_name" content="Devinsto.com" />
+      <meta name="robots" content="index, follow" />
+    </Head>
     <NavBar />
     <div class="bg-gradient-to-r from-emerald-100 to-emerald-200 border-b border-emerald-200 dark:from-emerald-500/10 dark:to-emerald-600/10 dark:border-emerald-500/20">
       <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
