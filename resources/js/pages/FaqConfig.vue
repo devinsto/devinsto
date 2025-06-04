@@ -104,15 +104,15 @@ const toggle = (idx: number) => {
             <div
               v-for="(faq, idx) in faqs"
               :key="faq.question"
-              class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm transition-all duration-300"
+              class=" mb-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-sm transition-all duration-300"
             >
               <button
-                class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none group"
+                class="w-full flex items-center justify-between px-6 py-5 text-left focus:outline-none group  border-b-emerald-100 dark:border-b-emerald-900  bg-slate-100 dark:bg-slate-800/40  border-b-2"
                 @click="toggle(idx)"
                 :aria-expanded="openIndex === idx"
               >
                 <span class="flex items-center gap-3 text-lg font-semibold text-slate-900 dark:text-slate-100 transition-colors">
-                  <span class="inline-block w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center mr-2">
+                  <span class=" w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center mr-2">
                     <HelpCircle class="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                   </span>
                   {{ idx + 1 }}. {{ faq.question }}

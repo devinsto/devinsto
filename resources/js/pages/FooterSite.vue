@@ -1,10 +1,11 @@
 <script setup lang="ts">
 // Année dynamique
+import { Link } from '@inertiajs/vue3'
 const currentYear = new Date().getFullYear();
 </script>
 
 <template>
-    <footer class="bg-gray-50 dark:bg-gray-900 text-gray-600 dark:text-gray-300 mt-14 pt-6 rounded-2xl">
+    <footer class="bg-gray-50 border-t-green-100 border-t-4 dark:bg-gray-900 text-gray-600 dark:text-gray-300 mt-14 pt-6 rounded-2xl">
         <section class="px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
             <div class="mx-auto max-w-7xl"> 
                 <!-- Section supérieure -->
@@ -25,13 +26,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">À propos</h3>
                         <ul class="space-y-2">
                             <li>
-                                <a href="/concept-logo" class="hover:text-primary dark:hover:text-green-400 transition">Concept du logo</a>
+                                <Link href="/concept-logo" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Concept du logo</Link>
                             </li>
                             <li>
-                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</a>
+                                <Link href="/about" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</Link>
                             </li>
                             <li>
-                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</a>
+                                <Link href="/about" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</Link>
                             </li>
                         </ul>
                     </div>
@@ -41,13 +42,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Ressources</h3>
                         <ul class="space-y-2">
                             <li>
-                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Blog</a>
+                                <Link href="#" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Blog</Link>
                             </li>
                             <li>
-                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Tutoriels</a>
+                                <Link href="#" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Tutoriels</Link>
                             </li>
                             <li>
-                                <a href="/faq-config" class="hover:text-primary dark:hover:text-green-400 transition">FAQ</a>
+                                <Link href="/faq-config" prefetch class="hover:text-primary dark:hover:text-green-400 transition">FAQ</Link>
                             </li>
                         </ul>
                     </div>
@@ -57,13 +58,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Legal</h3>
                         <ul class="space-y-2">
                             <li>
-                                <a href="/cgu" class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</a>
+                                <Link href="/cgu" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</Link>
                             </li>
                             <li>          
-                                <a href="/politicy-config" class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</a>
+                                <Link href="/politicy-config" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</Link>
                             </li>
                             <li>          
-                                <a href="/support-config" class="hover:text-green-600 dark:hover:text-green-400 transition">Support technique</a>
+                                <Link href="/support-config" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Support technique</Link>
                             </li>
                         </ul>
                     </div>
@@ -99,7 +100,7 @@ const currentYear = new Date().getFullYear();
                     <div class="flex gap-4 mt-5">
                         <!-- Facebook -->
                         <a
-                            href="https://facebook.com/"
+                            href="#"
                             target="_blank"
                             rel="noopener"
                             aria-label="Facebook"
@@ -111,7 +112,7 @@ const currentYear = new Date().getFullYear();
                         </a>
                         <!-- X (ex-Twitter) -->
                         <a
-                            href="https://x.com/"
+                            href="https://x.com/Rostandlele"
                             target="_blank"
                             rel="noopener"
                             aria-label="X"
@@ -123,7 +124,7 @@ const currentYear = new Date().getFullYear();
                         </a>
                         <!-- LinkedIn -->
                         <a
-                            href="https://linkedin.com/"
+                            href="https://www.linkedin.com/in/waffolelerostand/"
                             target="_blank"
                             rel="noopener"
                             aria-label="LinkedIn"
@@ -135,7 +136,7 @@ const currentYear = new Date().getFullYear();
                         </a>
                         <!-- Instagram -->
                         <a
-                            href="https://instagram.com/"
+                            href="#"
                             target="_blank"
                             rel="noopener"
                             aria-label="Instagram"
@@ -147,7 +148,7 @@ const currentYear = new Date().getFullYear();
                         </a>
                         <!-- YouTube -->
                         <a
-                            href="https://youtube.com/"
+                            href="#"
                             target="_blank"
                             rel="noopener"
                             aria-label="YouTube"
@@ -159,7 +160,7 @@ const currentYear = new Date().getFullYear();
                         </a>
                         <!-- GitHub -->
                         <a
-                            href="https://github.com/"
+                            href="https://github.com/rosto-infinity"
                             target="_blank"
                             rel="noopener"
                             aria-label="GitHub"
@@ -173,6 +174,12 @@ const currentYear = new Date().getFullYear();
                 </div> 
             </div>
         </section>
+  <!-- <div
+  class="DevinstoFooter w-full text-[15vw] leading-none font-extrabold text-center tracking-tight py-8 bg-gradient-to-r from-emerald-100 to-emerald-200 dark:from-emerald-900/30 dark:to-slate-800/30 text-emerald-700 dark:text-emerald-400 select-none"
+  style="word-break: break-word;"
+>
+  Devinsto
+</div> -->
     </footer>
 </template>
 

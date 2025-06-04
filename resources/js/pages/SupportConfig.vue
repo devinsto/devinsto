@@ -157,9 +157,9 @@ const currentDate = new Date().toLocaleDateString('fr-FR')
         </section>
       </div>
     </main>
-    <FooterSite />
     <div class="text-center py-6 border-t border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 text-sm">
       Support technique Devinsto.com – Dernière mise à jour : {{ currentDate }}
     </div>
+    <FooterSite />
   </div>
 </template>
