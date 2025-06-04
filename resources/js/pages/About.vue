@@ -1,148 +1,164 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
-import { ref } from 'vue';
+import { Briefcase, HeartHandshake, Lightbulb, Rocket, Star, TrendingUp, Users } from 'lucide-vue-next';
 import FooterSite from './FooterSite.vue';
-
-// Define the theme property
-const theme = ref('light'); // Default theme can be 'light' or 'dark'
 </script>
 
 <template>
+  <div class="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col">
     <NavBar />
- <section class=" px-4 py-12 sm:px-6 lg:px-8  dark:bg-gray-900">
-        <div class="mx-auto max-w-7xl"> 
-    
-    <div  class="">
-        <h1 class="mb-4 text-4xl font-bold">À Propos de Nous</h1>
-        <p class="mb-4">
-            <strong>À propos de Devinsto.com</strong><br />
-            Chez Devinsto.com, nous avons pour mission de créer une plateforme complète et accessible pour tous ceux qui souhaitent apprendre, créer,
-            et innover dans le monde du développement, du graphisme, et du web. Nous avons conçu notre espace pour qu’il soit un point de rencontre
-            entre les passionnés, les créateurs, et les professionnels, où chacun peut progresser à son rythme, collaborer, et donner vie à ses
-            projets. Notre engagement repose sur l'accompagnement des utilisateurs à travers une expérience d'apprentissage unique et enrichissante,
-            tout en offrant les outils nécessaires pour créer et partager des projets numériques professionnels.
-        </p>
+    <main class="flex-1">
+      <!-- Hero -->
+      <section class="bg-gradient-to-r from-emerald-100 to-emerald-200 dark:from-emerald-900/20 dark:to-slate-800/20 border-b border-emerald-200 dark:border-emerald-500/20">
+        <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 text-center">
+          <div class="flex justify-center mb-4 animate-fade-in-down">
+            <div class="w-16 h-16 bg-emerald-700 dark:bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-200/40 dark:shadow-emerald-900/40">
+              <Rocket class="w-8 h-8 text-slate-100 dark:text-slate-900" />
+            </div>
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-bold mb-2 tracking-tight animate-fade-in-down">À Propos de Devinsto.com</h1>
+          <p class="text-xl text-emerald-700 dark:text-emerald-400 font-semibold mb-2 animate-fade-in-down">Apprendre. Créer. Innover.</p>
+          <p class="text-slate-700 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-down">
+            Devinsto.com est une plateforme complète pour apprendre, créer et collaborer dans le développement, le design et la gestion de projets numériques. Notre mission : rendre l’éducation et la création accessibles à tous.
+          </p>
+        </div>
+      </section>
 
-        <hr class="my-6" />
+      <!-- Mission -->
+      <section class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 space-y-10">
+        <div class="animate-fade-in-up">
+          <h2 class="text-3xl font-bold mb-4 flex items-center gap-2">
+            <Lightbulb class="w-7 h-7 text-emerald-700 dark:text-emerald-400" /> Notre Mission
+          </h2>
+          <p class="mb-4 text-lg text-slate-700 dark:text-slate-300">
+            Démocratiser l'accès aux ressources éducatives et aux outils de création, pour que chacun puisse développer ses compétences et bâtir sa présence en ligne, quel que soit son niveau ou ses ambitions.
+          </p>
+          <div class="grid gap-6 sm:grid-cols-3">
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-100">
+              <Star class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Apprendre sans limite</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Formations en programmation web, design graphique, développement mobile, et plus encore.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-200">
+              <Rocket class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Créer des projets</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Outils et ressources pour concrétiser vos idées, créer des sites web, déployer et maintenir vos projets.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-300">
+              <Users class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Collaborer & partager</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Une communauté active pour échanger, s’entraider et progresser ensemble.
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <h2 class="mb-4 text-3xl font-bold">Notre Mission</h2>
-        <p class="mb-4">
-            Notre mission chez Devinsto est de démocratiser l'accès aux ressources éducatives et aux outils de création, qu’il s’agisse de
-            programmation, de design graphique ou de gestion de projets numériques. Nous croyons que l’éducation et la créativité sont les moteurs du
-            progrès, et nous nous efforçons de fournir un environnement où chaque utilisateur peut acquérir des compétences pratiques et immédiatement
-            applicables.
-        </p>
-        <p class="mb-4">
-            Nous souhaitons donner à chacun les moyens de développer ses talents, de créer des projets innovants et de bâtir sa présence en ligne, que
-            ce soit en tant que développeur, designer ou entrepreneur numérique.
-        </p>
+        <!-- Valeurs -->
+        <div class="animate-fade-in-up">
+          <h2 class="text-3xl font-bold mb-4 flex items-center gap-2">
+            <HeartHandshake class="w-7 h-7 text-emerald-700 dark:text-emerald-400" /> Nos Valeurs
+          </h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <Lightbulb class="w-6 h-6 text-emerald-700 dark:text-emerald-400 mt-1" />
+              <div>
+                <strong>Passion pour l’apprentissage :</strong>
+                <span class="text-slate-700 dark:text-slate-300">Nous croyons que l'éducation change des vies. Notre contenu est accessible, de qualité, et toujours à la pointe.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <Rocket class="w-6 h-6 text-emerald-700 dark:text-emerald-400 mt-1" />
+              <div>
+                <strong>Créativité & innovation :</strong>
+                <span class="text-slate-700 dark:text-slate-300">Nous encourageons la pensée créative et offrons des outils pour repousser les limites et réaliser des projets uniques.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <Users class="w-6 h-6 text-emerald-700 dark:text-emerald-400 mt-1" />
+              <div>
+                <strong>Accessibilité & inclusivité :</strong>
+                <span class="text-slate-700 dark:text-slate-300">Notre plateforme est ouverte à tous, quels que soient l’âge, l’expérience ou les moyens financiers.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <HeartHandshake class="w-6 h-6 text-emerald-700 dark:text-emerald-400 mt-1" />
+              <div>
+                <strong>Collaboration & soutien :</strong>
+                <span class="text-slate-700 dark:text-slate-300">Nous valorisons l’entraide et la communauté. Chacun peut apprendre, partager et s’entraider.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-        <h3 class="mb-2 text-2xl font-semibold">Objectifs clés de Devinsto :</h3>
-        <ul class="mb-4 list-disc pl-6">
-            <li>
-                Apprendre sans limite : Offrir une formation de qualité dans des domaines divers tels que la programmation web (PHP, JavaScript, C#,
-                etc.), le design graphique (Illustrator, Photoshop, XD, etc.), et le développement mobile (Flutter, Dart).
-            </li>
-            <li>
-                Créer des projets : Fournir des outils et des ressources pour aider les utilisateurs à concrétiser leurs idées, avec des outils de
-                création de site web, de maintenance sur WordPress, ainsi que des solutions de déploiement sur des plateformes comme VPS ou Coolify.
-            </li>
-            <li>
-                Collaborer et partager : Construire une communauté active et impliquée, où les utilisateurs peuvent échanger, se soutenir et partager
-                leurs expériences et projets.
-            </li>
-        </ul>
-        <p>
-            Nous sommes convaincus que Devinsto.com n’est pas seulement une plateforme, mais un véritable écosystème où les idées prennent vie, et où
-            la collaboration est au cœur de chaque action.
-        </p>
+        <!-- Équipe -->
+        <div class="animate-fade-in-up">
+          <h2 class="text-3xl font-bold mb-4 flex items-center gap-2">
+            <Users class="w-7 h-7 text-emerald-700 dark:text-emerald-400" /> Notre Équipe
+          </h2>
+          <p class="mb-4 text-lg text-slate-700 dark:text-slate-300">
+            Une équipe passionnée d’innovateurs, de développeurs, de designers et de formateurs, unie par la volonté de vous accompagner dans votre progression et la réussite de vos projets numériques.
+          </p>
+        </div>
 
-        <hr class="my-6" />
-
-        <h2 class="mb-4 text-3xl font-bold">Notre Équipe et Nos Valeurs</h2>
-        <p class="mb-4">
-            Devinsto.com est dirigé par une équipe de professionnels passionnés par l’innovation, l’éducation et la technologie. Notre équipe est
-            constituée de développeurs, de designers, de formateurs et d’entrepreneurs, chacun apportant une expertise unique pour soutenir les
-            utilisateurs dans leur parcours d'apprentissage et de création.
-        </p>
-        <p class="mb-4">Nous partageons des valeurs essentielles qui guident nos actions et nos choix au quotidien :</p>
-        <ul class="mb-4 list-disc pl-6">
-            <li>
-                <strong>Passion pour l’apprentissage :</strong> Nous croyons que l'éducation est un levier puissant pour améliorer la vie des
-                individus et des communautés. C'est pourquoi nous nous efforçons d’offrir un contenu de qualité, accessible à tous, tout en étant
-                constamment à la pointe des dernières tendances et technologies.
-            </li>
-            <li>
-                <strong>Créativité et innovation :</strong> Nous encourageons la pensée créative et l'innovation dans tous les domaines que nous
-                couvrons. Nous offrons des outils et des ressources qui permettent à chacun de repousser les limites de ce qui est possible et de
-                créer des projets uniques.
-            </li>
-            <li>
-                <strong>Accessibilité et inclusivité :</strong> Nous nous engageons à rendre notre plateforme accessible à tous, quels que soient
-                l’âge, le niveau d'expérience ou les moyens financiers. Nous croyons que tout le monde mérite la possibilité d’apprendre et de
-                réussir.
-            </li>
-            <li>
-                <strong>Collaboration et soutien :</strong> Nous valorisons l’entraide et la collaboration. Notre objectif est de bâtir une communauté
-                soudée où chaque membre peut apprendre des autres, partager ses idées et se soutenir mutuellement dans ses projets.
-            </li>
-        </ul>
-        <p>
-            Notre équipe travaille sans relâche pour faire de Devinsto.com une plateforme où les utilisateurs se sentent inspirés, motivés et prêts à
-            passer à l’action.
-        </p>
-
-        <hr class="my-6" />
-
-        <h2 class="mb-4 text-3xl font-bold">Carrières chez Devinsto.com</h2>
-        <p class="mb-4">
-            Nous sommes toujours à la recherche de talents passionnés pour rejoindre notre équipe et contribuer à l’évolution de Devinsto.com. Si vous
-            êtes un(e) professionnel(le) du développement, du design, du marketing ou de l’éducation, et que vous avez envie de travailler dans une
-            entreprise innovante qui valorise la créativité et l'apprentissage, nous serions ravis de vous rencontrer.
-        </p>
-        <h3 class="mb-2 text-2xl font-semibold">Pourquoi rejoindre Devinsto.com ?</h3>
-        <ul class="mb-4 list-disc pl-6">
-            <li>
-                <strong>Impact :</strong> En rejoignant notre équipe, vous aurez l’opportunité d’avoir un impact direct sur la façon dont les gens
-                apprennent, créent et collaborent dans le domaine du numérique.
-            </li>
-            <li>
-                <strong>Environnement de travail collaboratif :</strong> Chez Devinsto, nous croyons en la force du travail d’équipe et de l’échange
-                d’idées. Vous serez entouré(e) de personnes passionnées, prêtes à partager leurs connaissances et à vous soutenir.
-            </li>
-            <li>
-                <strong>Opportunités de croissance professionnelle :</strong> Nous offrons un environnement propice à l’apprentissage continu et à
-                l’évolution professionnelle. Vous aurez la possibilité d’acquérir de nouvelles compétences et d’évoluer avec nous au fur et à mesure
-                de la croissance de la plateforme.
-            </li>
-        </ul>
-        
-    </div>
-</div>
-</section>
-<FooterSite/>
+        <!-- Carrières -->
+        <div class="animate-fade-in-up">
+          <h2 class="text-3xl font-bold mb-4 flex items-center gap-2">
+            <Briefcase class="w-7 h-7 text-emerald-700 dark:text-emerald-400" /> Carrières chez Devinsto.com
+          </h2>
+          <p class="mb-4 text-lg text-slate-700 dark:text-slate-300">
+            Nous recrutons des talents passionnés par le développement, le design, le marketing ou l’éducation. Rejoignez une équipe innovante qui valorise la créativité, l’apprentissage et l’impact.
+          </p>
+          <div class="grid gap-6 sm:grid-cols-3">
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-100">
+              <TrendingUp class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Impact</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Participez à la transformation de l’apprentissage et de la création numérique.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-200">
+              <Users class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Travail collaboratif</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Évoluez dans une équipe soudée, partagez vos idées et grandissez ensemble.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center shadow-sm animate-fade-in-up delay-300">
+              <Star class="w-8 h-8 text-emerald-700 dark:text-emerald-400 mb-2" />
+              <h3 class="font-semibold text-lg mb-1">Opportunités de croissance</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm text-center">
+                Développez vos compétences et évoluez avec la plateforme au fil de sa croissance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <FooterSite />
+  </div>
 </template>
 
 <style scoped>
-.about-container {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition:
-        background-color 0.3s,
-        color 0.3s;
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
 }
-
-.about-container.light {
-    background-color: #f9f9f9; /* Couleur de fond clair */
-    color: #333; /* Couleur du texte sombre */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
 }
-
-.about-container.dark {
-    background-color: #1a1a1a; /* Couleur de fond sombre */
-    color: #f9f9f9; /* Couleur du texte clair */
+.animate-fade-in-down {
+  animation: fade-in-down 0.7s cubic-bezier(.4,0,.2,1);
 }
-
-hr {
-    border: 1px solid #ddd; /* Style de séparation */
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(.4,0,.2,1);
 }
+.animate-fade-in-up.delay-100 { animation-delay: .1s; }
+.animate-fade-in-up.delay-200 { animation-delay: .2s; }
+.animate-fade-in-up.delay-300 { animation-delay: .3s; }
 </style>

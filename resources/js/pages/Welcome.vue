@@ -4,6 +4,7 @@ import Welcome3 from './Welcome3.vue';
 import Welcome2 from './Welcome2.vue';
 import HeroSection from './HeroSection.vue';
 import FooterSite from './FooterSite.vue';
+import PoliticyConfig from './PoliticyConfig.vue';
 </script>
 <template>
     <NavBar />
@@ -13,6 +14,7 @@ import FooterSite from './FooterSite.vue';
             <HeroSection />
             <Welcome3 class="mt-4 "/>
             <Welcome2 />
+          
         </div>
     </section>
     <FooterSite />

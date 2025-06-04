@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
-import { computed, ref } from 'vue';
 import FooterSite from './FooterSite.vue';
+import { computed, ref } from 'vue';
 
 interface Article {
     id: number;

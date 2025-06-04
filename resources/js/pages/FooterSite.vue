@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 // Année dynamique
 const currentYear = new Date().getFullYear();
 </script>
@@ -12,9 +11,6 @@ const currentYear = new Date().getFullYear();
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
                     <!-- Colonne 1 : Description -->
                     <div class="md:col-span-2">
-                   <!-- <div class="flex h-20 w-20 items-center justify-center rounded-md pt-9 bg-amber-400">
-                            <AppLogo class="" /><span class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Devinsto</span>
-                    </div> -->
                         <span class="text-2xl font-bold mb-4 text-green-500 dark:text-white">Devinsto</span>
                         <p class="leading-relaxed">
                             Programmation, développement web, high-tech... Avec Devinsto, je partage ma passion pour 
@@ -28,8 +24,15 @@ const currentYear = new Date().getFullYear();
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">À propos</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</a></li>
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</a></li>
+                            <li>
+                                <a href="/concept-logo" class="hover:text-primary dark:hover:text-green-400 transition">Concept du logo</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -37,9 +40,15 @@ const currentYear = new Date().getFullYear();
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Ressources</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Blog</a></li>
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Tutoriels</a></li>
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">FAQS</a></li>
+                            <li>
+                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Tutoriels</a>
+                            </li>
+                            <li>
+                                <a href="/faq-config" class="hover:text-primary dark:hover:text-green-400 transition">FAQ</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -47,15 +56,21 @@ const currentYear = new Date().getFullYear();
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Legal</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</a></li>
-                            <li><a href="#" class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</a></li>
+                            <li>
+                                <a href="/cgu" class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</a>
+                            </li>
+                            <li>          
+                                <a href="/politicy-config" class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</a>
+                            </li>
+                            <li>          
+                                <a href="/support-config" class="hover:text-green-600 dark:hover:text-green-400 transition">Support technique</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Ligne de séparation -->
                 <div class="border-t border-gray-200 dark:border-green-950 mb-2"></div>
-                     <!-- <br class="md:hidden" />     -->
                 <!-- Section inférieure -->
                 <div class="flex flex-col md:flex-row justify-between ">
                     <div class="text-sm mb-4 md:mb-0 flex items-center gap-2">
@@ -65,25 +80,23 @@ const currentYear = new Date().getFullYear();
                         </div>
                     </div>
                     <div style="margin-top: -1rem;">
-                            <a
-                     href="https://hostinger.fr/?REFERRALCODE=1ROSTO35"
-                     target="_blank"
-                     rel="noopener"
-                     aria-label="Hostinger"
-                     class=""
-                     >
-                          <div class="flex flex-col  justify-center">
-                            <span class=" md:inline-block mx-2 text-sm"> Hosted by</span>
-                           <div class="flex  gap-2 ">
-                            <svg class="w-7 h-7"
-                        clip-rule="evenodd" fill-rule="evenodd" height="2500" stroke-linejoin="round" stroke-miterlimit="2" viewBox="7.002 8.287 148.203 175.426" width="2112" xmlns="http://www.w3.org/2000/svg"><path d="m7.002 8.287 39.319 21.172v39.32h57.467l36.295 21.172h-133.081zm148.203 75.615v-54.443l-42.344-21.172v51.418zm0 99.811-39.319-21.172v-39.32h-57.467l-36.295-21.172h133.081zm-148.203-75.615v54.443l42.343 21.172v-51.418z" fill="#6747c7"/></svg>
-                        
-                        <span style="color:#673de6; font-weight:bold; font-family:system-ui, sans-serif; font-size: 1.2rem;">Hostinger</span>
-                       </div>
-                          </div>
-                   </a>
-                        </div>
-                   <div class="flex gap-4 mt-5">
+                        <a
+                            href="https://hostinger.fr/?REFERRALCODE=1ROSTO35"
+                            target="_blank"
+                            rel="noopener"
+                            aria-label="Hostinger"
+                        >
+                            <div class="flex flex-col  justify-center">
+                                <span class=" md:inline-block mx-2 text-sm"> Hosted by</span>
+                                <div class="flex  gap-2 ">
+                                    <svg class="w-7 h-7"
+                                        clip-rule="evenodd" fill-rule="evenodd" height="2500" stroke-linejoin="round" stroke-miterlimit="2" viewBox="7.002 8.287 148.203 175.426" width="2112" xmlns="http://www.w3.org/2000/svg"><path d="m7.002 8.287 39.319 21.172v39.32h57.467l36.295 21.172h-133.081zm148.203 75.615v-54.443l-42.344-21.172v51.418zm0 99.811-39.319-21.172v-39.32h-57.467l-36.295-21.172h133.081zm-148.203-75.615v54.443l42.343 21.172v-51.418z" fill="#6747c7"/></svg>
+                                    <span style="color:#673de6; font-weight:bold; font-family:system-ui, sans-serif; font-size: 1.2rem;">Hostinger</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex gap-4 mt-5">
                         <!-- Facebook -->
                         <a
                             href="https://facebook.com/"
@@ -158,13 +171,12 @@ const currentYear = new Date().getFullYear();
                         </a>
                     </div>   
                 </div> 
-        </div>
-       </section>
+            </div>
+        </section>
     </footer>
 </template>
 
 <style scoped>
-
 a.group:hover svg {
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));
   transform: scale(1.12);

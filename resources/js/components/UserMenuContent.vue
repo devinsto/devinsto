@@ -17,8 +17,8 @@ defineProps<Props>();
 </script>
 
 <template>
-    <DropdownMenuLabel class="p-0 font-normal">
-        <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+    <DropdownMenuLabel class="p-0 font-normal ">
+        <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm bg-[#001F14]">
             <UserInfo :user="user" :show-email="true" />
         </div>
     </DropdownMenuLabel>

@@ -42,7 +42,7 @@ const submit = () => {
 
 <template>
     <AppLayout :breadcrumbs="breadcrumbs">
-        <Head title="Profile settings" />
+        <Head title="Profile settings"/>
 
         <SettingsLayout>
             <div class="flex flex-col space-y-6">

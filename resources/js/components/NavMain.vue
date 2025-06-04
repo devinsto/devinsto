@@ -11,14 +11,14 @@ const page = usePage<SharedData>();
 </script>
 
 <template>
-    <SidebarGroup class="px-2 py-0 ">
-        <SidebarGroupLabel>Platform</SidebarGroupLabel>
-        <SidebarMenu>
+    <SidebarGroup class="px-2 py-0 bg-[#020618]">
+        <SidebarGroupLabel>Platformeeeeeeeeeeeeee</SidebarGroupLabel >
+        <SidebarMenu >
             <SidebarMenuItem v-for="item in items" :key="item.title">
-                <SidebarMenuButton as-child :is-active="item.href === page.url" :tooltip="item.title">
-                    <Link :href="item.href" prefetch>
+                <SidebarMenuButton  as-child :is-active="item.href === page.url" :tooltip="item.title">
+                    <Link :href="item.href" prefetch >
                         <component :is="item.icon" />
-                        <span>{{ item.title }}</span>
+                        <span >{{ item.title }}</span>
                     </Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>

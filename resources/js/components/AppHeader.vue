@@ -62,7 +62,7 @@ const rightNavItems: NavItem[] = [
 
 <template>
     <div>
-        <div class="border-sidebar-border/80 border-b">
+        <div class="border-sidebar-border/80 border-b ">
             <div class="mx-auto flex h-16 items-center px-4 md:max-w-7xl">
                 <!-- Mobile Menu -->
                 <div class="lg:hidden">
@@ -108,12 +108,12 @@ const rightNavItems: NavItem[] = [
                     </Sheet>
                 </div>
 
-                <Link :href="route('dashboard')" class="flex items-center gap-x-2" prefetch>
+                <Link :href="route('dashboard')" class="flex  items-center gap-x-2" prefetch>
                     <AppLogo />
                 </Link>
 
                 <!-- Desktop Menu -->
-                <div class="hidden h-full lg:flex lg:flex-1">
+                <div class="hidden h-full lg:flex lg:flex-1 ">
                     <NavigationMenu class="ml-10 flex h-full items-stretch">
                         <NavigationMenuList class="flex h-full items-stretch space-x-2">
                             <NavigationMenuItem v-for="(item, index) in mainNavItems" :key="index" class="relative flex h-full items-center">

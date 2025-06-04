@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
-        <script>
+        {{-- <script>
             (function() {
                 const appearance = '{{ $appearance ?? "system" }}';
 
@@ -17,8 +17,29 @@
                     }
                 }
             })();
-        </script>
 
+            
+        </script> --}}
+<script>
+(function() {
+    // 1. Prend la préférence utilisateur si elle existe (localStorage)
+    let appearance = localStorage.getItem('theme');
+    // 2. Sinon, prend la valeur Blade (backend)
+    if (!appearance || appearance === 'null') {
+        appearance = '{{ $appearance ?? "system" }}';
+    }
+
+    // 3. Applique la classe dark selon la logique
+    if (
+        appearance === 'dark' ||
+        (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+})();
+</script>
         {{-- Inline style to set the HTML background color based on our theme in app.css --}}
         <style>
             html {
