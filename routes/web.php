@@ -40,6 +40,10 @@ Route::get('/concept-logo', function () {
     return Inertia::render('ConceptLogo');
 })->name('concept-logo');
 
+Route::get('admin/dashboard', function () {
+    return Inertia::render('admin/DashboardAdmin');
+})->name('dashboard-admin');
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

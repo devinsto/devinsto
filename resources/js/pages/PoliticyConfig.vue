@@ -14,7 +14,7 @@ import {
   Shield,
   Users
 } from 'lucide-vue-next';
-import { h, ref, computed, onMounted, watch } from 'vue';
+import { h, ref } from 'vue';
 import FooterSite from './FooterSite.vue';
 
 interface Section {
@@ -171,60 +171,15 @@ const sections: Section[] = [
 ]
 const currentDate = new Date().toLocaleDateString('fr-FR')
 
-// Génération du JSON-LD pour le SEO (PrivacyPolicy)
-const policyJsonLd = computed(() =>
-  JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "PrivacyPolicy",
-    "name": "Politique de Confidentialité Devinsto.com",
-    "description": "Découvrez la politique de confidentialité de Devinsto.com : gestion des données, droits RGPD, sécurité et contact. Vos données sont protégées et traitées avec soin.",
-    "url": "https://devinsto.com/politicy-config",
-    "dateModified": new Date().toISOString().split('T')[0]
-  })
-)
 
-// Injection dynamique du JSON-LD dans le <head>
-const injectJsonLd = () => {
-  let script = document.getElementById('policy-jsonld') as HTMLScriptElement | null
-  if (script) script.remove()
-  script = document.createElement('script') as HTMLScriptElement
-  script.type = 'application/ld+json'
-  script.id = 'policy-jsonld'
-  script.text = policyJsonLd.value
-  document.head.appendChild(script)
-}
-
-onMounted(() => {
-  injectJsonLd()
-})
-watch(policyJsonLd, injectJsonLd)
 
 </script>
 
 <template>
   <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-   <Head>
-      <title>Politique de Confidentialité | Devinsto.com</title>
-      <meta name="description" content="Découvrez la politique de confidentialité de Devinsto.com : gestion des données, droits RGPD, sécurité et contact. Vos données sont protégées et traitées avec soin." />
-      <meta property="og:title" content="Politique de Confidentialité | Devinsto.com" />
-      <meta property="og:description" content="Découvrez la politique de confidentialité de Devinsto.com : gestion des données, droits RGPD, sécurité et contact." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://devinsto.com/politicy-config" />
-      <meta property="og:site_name" content="Devinsto.com" />
-      <meta name="robots" content="index, follow" />
-    </Head>
+   
     <NavBar />
-    <!-- Balises SEO -->
-    <head>
-      <title>Politique de Confidentialité | Devinsto.com</title>
-      <meta name="description" content="Découvrez la politique de confidentialité de Devinsto.com : gestion des données, droits RGPD, sécurité et contact. Vos données sont protégées et traitées avec soin." />
-      <meta property="og:title" content="Politique de Confidentialité | Devinsto.com" />
-      <meta property="og:description" content="Découvrez la politique de confidentialité de Devinsto.com : gestion des données, droits RGPD, sécurité et contact." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://devinsto.com/politicy-config" />
-      <meta property="og:site_name" content="Devinsto.com" />
-      <meta name="robots" content="index, follow" />
-    </head>
+    
     <!-- Header -->
     <header class="bg-gradient-to-r from-emerald-100 to-emerald-200 border-b border-emerald-200 dark:from-emerald-500/10 dark:to-emerald-600/10 dark:border-emerald-500/20">
       <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
