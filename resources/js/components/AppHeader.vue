@@ -20,7 +20,30 @@ import type { BreadcrumbItem, NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-vue-next';
 import { computed } from 'vue';
+// Définissez une interface pour la structure de l'utilisateur
+interface User {
+  id: number;
+  name: string;
+  email: string;
+   email_verified_at: string | null; // Ajouté
+  created_at: string; // Ajouté
+  updated_at: string; // Ajouté
+  avatar?: string;
+  // Ajoutez d'autres propriétés utilisateur si nécessaire
+}
 
+// Définissez une interface pour l'objet auth
+interface Auth {
+  user: User;
+  // Ajoutez d'autres propriétés d'authentification si nécessaire
+}
+
+// Étendez les PageProps d'Inertia pour inclure auth
+declare module '@inertiajs/core' {
+  interface PageProps {
+    auth: Auth;
+  }
+}
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
 }

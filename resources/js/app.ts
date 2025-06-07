@@ -1,5 +1,5 @@
 import '../css/app.css';
-
+import.meta.env.VITE_ADMIN_USERTYPE
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
@@ -20,7 +20,7 @@ declare module 'vite/client' {
     }
 }
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Devinsto';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

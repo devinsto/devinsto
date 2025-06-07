@@ -40,9 +40,15 @@ Route::get('/concept-logo', function () {
     return Inertia::render('ConceptLogo');
 })->name('concept-logo');
 
-Route::get('admin/dashboard', function () {
-    return Inertia::render('admin/DashboardAdmin');
-})->name('dashboard-admin');
+
+
+// Le middleware 'admin' vérifie que Auth::user()->usertype === env('ADMIN_USERTYPE')
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard-admin', function () {
+        return Inertia::render('admin/DashboardAdmin');
+    })->name('admin.dashboard-admin');
+});
+
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');

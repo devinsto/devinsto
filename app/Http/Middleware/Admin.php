@@ -17,11 +17,13 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         // Vérifiez si l'utilisateur est authentifié et est un administrateur
-        if (Auth::user()->usertype != 'admin') {
+        $adminUsertype = env('ADMIN_USERTYPE');
+        if (Auth::user()->usertype != $adminUsertype) {
             // Redirigez ou renvoyez une erreur
             // return redirect('/')->with('error', 'Vous n\'avez pas accès à cette ressource.');
             return redirect('/');
         }
+
         return $next($request);
     }
 }

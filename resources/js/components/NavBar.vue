@@ -2,10 +2,10 @@
 <script setup lang="ts">
 
 import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
-import { Link, usePage, router } from '@inertiajs/vue3';
+import { Link, router, usePage } from '@inertiajs/vue3';
+import { LogOut } from 'lucide-vue-next';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AppLogo from './AppLogo.vue';
-import { LogOut } from 'lucide-vue-next';
 
 const open = ref(false);
 const isDark = ref(false);
@@ -17,6 +17,10 @@ const handleLogout = () => {
 // Récupère l'utilisateur connecté depuis Inertia
 const page = usePage<{ auth: { user: any } }>();
 const user = page.props.auth.user;
+
+// Ajout de la vérification admin
+const ADMIN_USERTYPE = import.meta.env.VITE_ADMIN_USERTYPE;
+const isAdmin = user && user.usertype === ADMIN_USERTYPE;
 
 // Initialiser le thème
 onMounted(() => {
@@ -106,10 +110,24 @@ const links: headerLink[] = [
                             <!-- Intégration du composant AppearanceTabs -->
                             <AppearanceDarkLightToggle /> |
                         </div>
-                        <div v-if="user" class="flex gap-5">
-
-                            <Link href="/dashboard" prefetch class=" hover:text-primary transition">
-                            Dashboard </Link>
+                        <div v-if="user" class="flex gap-5 bg-amber-200">
+                            
+                            <Link
+                                v-if="isAdmin"
+                                href="/admin/dashboard-admin"
+                                prefetch
+                                class="hover:text-primary flex transition"
+                            >
+                                DashboardAdmin
+                            </Link>
+                            <Link
+                                v-else
+                                href="/dashboard"
+                                prefetch
+                                class="hover:text-primary transition"
+                            >
+                                Dashboard
+                            </Link>
 
                             <Link class="block w-full text-[#FF2D55]" method="post" :href="route('logout')"
                                 @click="handleLogout" prefetch as="button">
@@ -163,8 +181,22 @@ const links: headerLink[] = [
                 <div>
                     <div v-if="user" class="grid gap-3">
 
-                        <Link href="/dashboard" prefetch class=" hover:text-primary transition ">
-                        Dashboard </Link>
+                        <Link
+                            v-if="isAdmin"
+                            href="/admin/dashboard-admin"
+                            prefetch
+                            class="hover:text-primary transition"
+                        >
+                            Dashboard Admin
+                        </Link>
+                        <Link
+                            v-else
+                            href="/dashboard"
+                            prefetch
+                            class="hover:text-primary transition"
+                        >
+                            Dashboard
+                        </Link>
 
                         <Link class="block w-full text-red-600" method="post" :href="route('logout')"
                             @click="handleLogout" prefetch as="button">

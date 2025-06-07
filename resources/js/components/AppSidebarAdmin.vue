@@ -10,8 +10,8 @@ import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
-        href: '/dashboard',
+         title: 'Dashboard Admin',
+        href: '/admin/dashboard-admin',
         icon: LayoutGrid,
     },
 
@@ -24,11 +24,7 @@ const mainNavItems: NavItem[] = [
 ];
 
 const footerNavItems: NavItem[] = [
-     {
-        title: 'Github Repo',
-       href: '#',
-       icon: Home,
-    },
+     
    {
        title: 'Documentation',
        href: '#',
@@ -43,7 +39,7 @@ const footerNavItems: NavItem[] = [
             <SidebarMenu >
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child >
-                        <Link :href="route('dashboard')" prefetch>
+                        <Link :href="route('admin.dashboard-admin')" prefetch>
                             <AppLogo />
                         </Link>
                     </SidebarMenuButton>
@@ -56,10 +52,10 @@ const footerNavItems: NavItem[] = [
         </SidebarContent>
 
         <SidebarFooter class="bg-[#020618] ">
-            <NavFooter :items="footerNavItems" />
+            <NavFooter :items="footerNavItems" class="bg-[#020618]" />
             <NavUser />
         </SidebarFooter>
     </Sidebar>
     <slot />
 </template>
-resources/js/components/AppSidebar.vue
+
