@@ -50,74 +50,54 @@ const submit = () => {
 
 <template>
     <AppLayout :breadcrumbs="breadcrumbs">
+
         <Head title="Profile settings" />
 
         <SettingsLayout>
+            <!-- Avatar display section -->
+            <div class="flex flex-col items-center mb-6">
+                <div
+                    class="relative group w-32 h-32 rounded-full border-4 border-[#0a5d3b] bg-gradient-to-br from-[#e0f7ef] to-[#f8fafc] shadow-lg overflow-hidden transition-all duration-300">
+                    <img v-if="user.avatar" :src="`/storage/${user.avatar}`" alt="Avatar"
+                        class="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105" />
+
+
+                    <div v-else
+                        class="w-full h-full flex items-center justify-center bg-[#e0f7ef] text-[#0a5d3b] text-5xl font-bold rounded-full">
+                        {{ user.name.charAt(0).toUpperCase() }}
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                        <span class="text-white text-xs font-semibold">Changer l'avatar</span>
+                    </div>
+                </div>
+            </div>
             <div class="flex flex-col space-y-6">
                 <HeadingSmall title="Profile information" description="Update your name and email address" />
 
-                <!-- Avatar display section -->
-                <div class="flex flex-col items-center mb-6">
-                    <div class="relative group w-32 h-32 rounded-full border-4 border-[#0a5d3b] bg-gradient-to-br from-[#e0f7ef] to-[#f8fafc] shadow-lg overflow-hidden transition-all duration-300">
-                        <img
-                            v-if="user.avatar"
-                            :src="`/storage/${user.avatar}`"
-                            alt="Avatar"
-                            class="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-105"
-                        />
 
-                        
-                        <div
-
-                        
-                            v-else
-                            class="w-full h-full flex items-center justify-center bg-[#e0f7ef] text-[#0a5d3b] text-5xl font-bold rounded-full"
-                        >
-                            {{ user.name.charAt(0).toUpperCase() }}
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300"
-                        >
-                            <span class="text-white text-xs font-semibold">Changer l'avatar</span>
-                        </div>
-                    </div>
-                </div>
 
                 <form @submit.prevent="submit" enctype="multipart/form-data">
                     <div class="grid gap-4">
                         <div class="grid gap-2">
                             <Label for="name">Name</Label>
-                            <Input
-                                id="name"
-                                v-model="form.name"
-                                class="w-full"
-                                autocomplete="name"
-                                placeholder="Full name"
-                            />
+                            <Input id="name" v-model="form.name" class="w-full" autocomplete="name"
+                                placeholder="Full name" />
                             <InputError :message="form.errors.name" />
                         </div>
 
                         <div class="grid gap-2">
                             <Label for="email">Email address</Label>
-                            <Input
-                                id="email"
-                                type="email"
-                                v-model="form.email"
-                                class="w-full"
-                                autocomplete="email"
-                                placeholder="Email address"
-                            />
+                            <Input id="email" type="email" v-model="form.email" class="w-full" autocomplete="email"
+                                placeholder="Email address" />
                             <InputError :message="form.errors.email" />
                         </div>
 
                         <div v-if="mustVerifyEmail && !user.email_verified_at" class="text-sm text-muted-foreground">
                             Your email address is unverified.
-                            <Link
-                                :href="route('verification.send')"
-                                method="post"
-                                class="text-primary underline hover:text-primary/80"
-                            >
-                                Click here to resend the verification email.
+                            <Link :href="route('verification.send')" method="post"
+                                class="text-primary underline hover:text-primary/80">
+                            Click here to resend the verification email.
                             </Link>
                             <div v-if="status === 'verification-link-sent'" class="mt-2 text-sm text-green-600">
                                 A new verification link has been sent to your email address.
@@ -126,13 +106,8 @@ const submit = () => {
 
                         <div class="grid gap-2">
                             <Label for="avatar">Avatar</Label>
-                            <Input
-                                type="file"
-                                id="avatar"
-                                accept="image/*"
-                                @change="e => form.avatar = e.target.files?.[0] || null"
-                                class="w-full"
-                            />
+                            <Input type="file" id="avatar" accept="image/*"
+                                @change="e => form.avatar = e.target.files?.[0] || null" class="w-full" />
                             <InputError :message="form.errors.avatar" />
                         </div>
 
@@ -140,12 +115,8 @@ const submit = () => {
                             <Button type="submit" :disabled="form.processing">
                                 Save changes
                             </Button>
-                            <Transition
-                                enter-active-class="transition ease-in-out"
-                                enter-from-class="opacity-0"
-                                leave-active-class="transition ease-in-out"
-                                leave-to-class="opacity-0"
-                            >
+                            <Transition enter-active-class="transition ease-in-out" enter-from-class="opacity-0"
+                                leave-active-class="transition ease-in-out" leave-to-class="opacity-0">
                                 <p v-if="form.recentlySuccessful" class="text-sm text-muted-foreground">
                                     Saved.
                                 </p>
