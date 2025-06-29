@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { type NavItem } from '@/types';
 import { PageProps as InertiaPageProps } from '@inertiajs/core';
 import { Link, usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
+
 
 // Étendez les props de base d'Inertia
 interface SharedPageProps extends InertiaPageProps {

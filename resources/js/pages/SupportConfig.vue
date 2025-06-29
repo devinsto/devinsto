@@ -110,7 +110,7 @@ watch(supportJsonLd, injectJsonLd)
         </div>
       </div>
 
-      <div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8 space-y-10">
+      <div class="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8 space-y-10">
         <!-- Canaux de support -->
         <section itemscope itemtype="https://schema.org/ContactPoint">
           <h2 class="text-2xl font-semibold text-emerald-700 dark:text-emerald-400 mb-6 flex items-center gap-2">

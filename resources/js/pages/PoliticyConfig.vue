@@ -203,7 +203,7 @@ const currentDate = new Date().toLocaleDateString('fr-FR')
 
     <!-- Content -->
     <main>
-      <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div class="space-y-6">
           <section
             v-for="section in sections"

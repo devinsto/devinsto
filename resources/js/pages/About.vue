@@ -25,7 +25,7 @@ import FooterSite from './FooterSite.vue';
       </section>
 
       <!-- Mission -->
-      <section class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8 space-y-10">
+      <section class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 space-y-10">
         <div class="animate-fade-in-up">
           <h2 class="text-3xl font-bold mb-4 flex items-center gap-2">
             <Lightbulb class="w-7 h-7 text-emerald-700 dark:text-emerald-400" /> Notre Mission

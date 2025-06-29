@@ -79,7 +79,7 @@ watch(conceptJsonLd, injectJsonLd)
       </section>
 
       <!-- Section Dev -->
-      <section class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+      <section class="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
         <transition name="fade-slide">
           <div v-if="showSections[1]" class="grid gap-8 sm:grid-cols-2 items-center animate-fade-in-up">
             <div class="flex flex-col items-center sm:items-start">

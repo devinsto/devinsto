@@ -36,7 +36,7 @@ const form = useForm({
 const submit = () => {
     form.transform(data => ({
         ...data,
-        _method: 'PATCH' // ← Changé de PUT à PATCH
+        _method: 'PATCH' //
     })).post(route('profile.update'), {
         forceFormData: true,
         preserveScroll: true,
@@ -68,7 +68,10 @@ const submit = () => {
                     </div>
                     <div
                         class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                        <span class="text-white text-xs font-semibold">Changer l'avatar</span>
+                        <span class="text-white text-xs font-semibold">
+                           
+                            Changer l'avatar
+                        </span>
                     </div>
                 </div>
             </div>
@@ -106,7 +109,7 @@ const submit = () => {
 
                         <div class="grid gap-2">
                             <Label for="avatar">Avatar</Label>
-                            <Input type="file" id="avatar" accept="image/*"
+                            <Input type="file" id="avatar" accept="image/*"  
                                 @change="e => form.avatar = e.target.files?.[0] || null" class="w-full" />
                             <InputError :message="form.errors.avatar" />
                         </div>

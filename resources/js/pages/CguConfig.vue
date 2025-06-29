@@ -180,7 +180,7 @@ watch(cguJsonLd, injectJsonLd)
     </Head>
     <NavBar />
     <div class="bg-gradient-to-r from-emerald-100 to-emerald-200 border-b border-emerald-200 dark:from-emerald-500/10 dark:to-emerald-600/10 dark:border-emerald-500/20">
-      <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div class="text-center">
           <div class="flex justify-center mb-4">
             <div class="w-16 h-16 bg-emerald-700 dark:bg-emerald-500 rounded-xl flex items-center justify-center">
@@ -198,7 +198,7 @@ watch(cguJsonLd, injectJsonLd)
       </div>
     </div>
 
-    <div class="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <div class="space-y-6">
         <div
           v-for="section in sections"

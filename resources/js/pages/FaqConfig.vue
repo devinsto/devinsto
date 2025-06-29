@@ -139,7 +139,7 @@ watch(faqJsonLd, injectJsonLd)
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
         <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
           <TransitionGroup name="faq-fade" tag="div">
             <div
