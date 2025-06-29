@@ -26,13 +26,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">À propos</h3>
                         <ul class="space-y-2">
                             <li>
-                                <Link href="/concept-logo" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Concept du logo</Link>
+                                <Link :href="route('concept.logo')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Concept du logo</Link>
                             </li>
                             <li>
-                                <Link href="/about" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</Link>
+                                <Link :href="route('about')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Notre mission</Link>
                             </li>
                             <li>
-                                <Link href="/about" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</Link>
+                                <Link :href="route('about')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Équipe et valeurs</Link>
                             </li>
                         </ul>
                     </div>
@@ -42,13 +42,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Ressources</h3>
                         <ul class="space-y-2">
                             <li>
-                                <Link href="#" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Blog</Link>
+                                <Link :href="route('blog')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Blog</Link>
                             </li>
                             <li>
                                 <Link href="#" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Tutoriels</Link>
                             </li>
                             <li>
-                                <Link href="/faq-config" prefetch class="hover:text-primary dark:hover:text-green-400 transition">FAQ</Link>
+                                <Link :href="route('faq.config')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">FAQ</Link>
                             </li>
                         </ul>
                     </div>
@@ -58,13 +58,13 @@ const currentYear = new Date().getFullYear();
                         <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Legal</h3>
                         <ul class="space-y-2">
                             <li>
-                                <Link href="/cgu" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</Link>
+                                <Link :href="route('cgu.config')" prefetch class="hover:text-primary dark:hover:text-green-400 transition">Conditions générales d'utilisation</Link>
                             </li>
                             <li>          
-                                <Link href="/politicy-config" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</Link>
+                                <Link :href="route('politicy.config')" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Politique de confidentialité</Link>
                             </li>
                             <li>          
-                                <Link href="/support-config" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Support technique</Link>
+                                <Link :href="route('support.config')" prefetch class="hover:text-green-600 dark:hover:text-green-400 transition">Support technique</Link>
                             </li>
                         </ul>
                     </div>
