@@ -107,7 +107,7 @@ defineProps<Props>();
 
 .svgBox svg.static path {
     animation: none;
-    stroke: #033503;
+    stroke: #252a25;
     /* stroke: #ffffff; */
     stroke-dasharray: none;
 }
