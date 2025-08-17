@@ -1,26 +1,22 @@
 <!-- resources/js/Components/headerBar.vue -->
 <script setup lang="ts">
 
-import AppearanceDarkLightToggle from '@/components/AppearanceDarkLightToggle.vue';
-import { Link, router, usePage } from '@inertiajs/vue3';
-import { LogOut } from 'lucide-vue-next';
+import AppearanceTabs from '@/components/AppearanceTabs.vue';
+import { Link} from '@inertiajs/vue3';
+
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import AppLogo from './AppLogo.vue';
 
 const open = ref(false);
 const isDark = ref(false);
 const hasShadow = ref(false);
-const handleLogout = () => {
-    router.flushAll();
-};
 
-// Récupère l'utilisateur connecté depuis Inertia
-const page = usePage<{ auth: { user: any } }>();
-const user = page.props.auth.user;
+
+
+
 
 // Ajout de la vérification admin
-const ADMIN_USERTYPE = import.meta.env.VITE_ADMIN_USERTYPE;
-const isAdmin = user && user.usertype === ADMIN_USERTYPE;
+
 
 // Initialiser le thème
 onMounted(() => {
@@ -59,8 +55,8 @@ const links: headerLink[] = [
 
     <header
         :class="['sticky top-0 z-50 bg-white  overflow-hidden dark:bg-gray-900 border-border border-b transition-shadow', hasShadow ? 'shadow-lg' : 'shadow-none']">
-        <div class="topHead h-10 bg-[#0a5d3b]  sm:px-6 lg:py-8 md:py-8 flex items-center justify-center">
-            <div class="hos text-[#eefff5]">
+        <div class="topHead h-10 bg-[#0a5d3b]  sm:px-6 lg:py-3 md:py-3 flex items-center justify-center">
+            <div class="hos text-[#b8f6d2]">
                 <div style="">
                     <a href="https://hostinger.fr/?REFERRALCODE=1ROSTO35" target="_blank" rel="noopener" aria-label="Hostinger" class="">
                         <div class="flex items-center justify-center">
@@ -108,35 +104,10 @@ const links: headerLink[] = [
                     <div class="hidden items-center space-x-4 md:flex">
                         <div class="flex items-center gap-4">
                             <!-- Intégration du composant AppearanceTabs -->
-                            <AppearanceDarkLightToggle /> |
+                            <AppearanceTabs /> |
                         </div>
-                        <div v-if="user" class="flex gap-5 bg-amber-200">
-                            
-                            <Link
-                                v-if="isAdmin"
-                                href="/admin/dashboard-admin"
-                                prefetch
-                                class="hover:text-primary flex transition"
-                            >
-                                DashboardAdmin
-                            </Link>
-                            <Link
-                                v-else
-                                href="/dashboard"
-                                prefetch
-                                class="hover:text-primary transition"
-                            >
-                                Dashboard
-                            </Link>
-
-                            <Link class="block w-full text-[#FF2D55]" method="post" :href="route('logout')"
-                                @click="handleLogout" prefetch as="button">
-                            <LogOut class="mr-2 h-4 w-4 cursor-pointer" />
-
-                            </Link>
-                        </div>
-
-                        <template v-else>
+                      
+                        <template>
                             <Link href="/login" prefetch class="text-foreground hover:text-primary transition"> Log in
                             </Link>
                             <Link href="/register" prefetch class="text-foreground hover:text-primary transition">
@@ -179,32 +150,8 @@ const links: headerLink[] = [
 
                 <!-- Auth links -->
                 <div>
-                    <div v-if="user" class="grid gap-3">
-
-                        <Link
-                            v-if="isAdmin"
-                            href="/admin/dashboard-admin"
-                            prefetch
-                            class="hover:text-primary transition"
-                        >
-                            Dashboard Admin
-                        </Link>
-                        <Link
-                            v-else
-                            href="/dashboard"
-                            prefetch
-                            class="hover:text-primary transition"
-                        >
-                            Dashboard
-                        </Link>
-
-                        <Link class="block w-full text-red-600" method="post" :href="route('logout')"
-                            @click="handleLogout" prefetch as="button">
-                        <LogOut class="mr-2 h-4 w-4 cursor-pointer" />
-
-                        </Link>
-                    </div>
-                    <template v-else>
+                  
+                    <template>
                         <Link href="/login" @click="open = false" prefetch
                             class="text-foreground hover:bg-muted hover:text-primary block rounded-md px-3 py-2 text-base font-medium transition">
                         Log in
